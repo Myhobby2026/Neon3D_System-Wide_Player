@@ -24,6 +24,8 @@
 
 .field public b:I
 
+.field private k:F
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -48,6 +50,10 @@
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/tamalbasak/musicplayer3d/DSPManager;->b:I
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    iput v0, p0, Lcom/tamalbasak/musicplayer3d/DSPManager;->k:F
 
     invoke-direct {p0}, Lcom/tamalbasak/musicplayer3d/DSPManager;->construct()V
 
@@ -241,6 +247,36 @@
 
     invoke-direct {p0, v1, v0}, Lcom/tamalbasak/musicplayer3d/DSPManager;->setGain(IF)V
 
+    invoke-static {}, Lcom/tamalbasak/musicplayer3d/d;->k()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/tamalbasak/musicplayer3d/c;->a(Landroid/content/Context;)Lcom/tamalbasak/musicplayer3d/c;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/tamalbasak/musicplayer3d/c$a;->p0:Lcom/tamalbasak/musicplayer3d/c$a;
+
+    const-class v2, Ljava/lang/Integer;
+
+    invoke-virtual {v0, v1, v2}, Lcom/tamalbasak/musicplayer3d/c;->b(Lcom/tamalbasak/musicplayer3d/c$a;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    const/high16 v1, 0x42c80000    # 100.0f
+
+    div-float/2addr v0, v1
+
+    iput v0, p0, Lcom/tamalbasak/musicplayer3d/DSPManager;->k:F
+
     return-void
 .end method
 
@@ -311,6 +347,14 @@
     goto :goto_0
 
     :cond_3
+    invoke-static {}, Lcom/tamalbasak/musicplayer3d/f;->g()Lcom/tamalbasak/musicplayer3d/f;
+
+    move-result-object v0
+
+    iget v0, v0, Lcom/tamalbasak/musicplayer3d/f;->h:F
+
+    invoke-virtual {p0, v0}, Lcom/tamalbasak/musicplayer3d/DSPManager;->j(F)V
+
     iget-object v0, p0, Lcom/tamalbasak/musicplayer3d/DSPManager;->a:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -369,7 +413,7 @@
 
     array-length p2, p1
 
-    invoke-direct {p0, p1, v1, p2, v0}, Lcom/tamalbasak/musicplayer3d/DSPManager;->processData([SIII)[S
+    invoke-direct {p0, p1, v1, p2, v0}, Lcom/tamalbasak/musicplayer3d/DSPManager;->processDataWithMix([SIII)[S
 
     move-result-object p1
 
@@ -378,11 +422,131 @@
     :cond_0
     array-length v0, p1
 
-    invoke-direct {p0, p1, v1, v0, p2}, Lcom/tamalbasak/musicplayer3d/DSPManager;->processData([SIII)[S
+    invoke-direct {p0, p1, v1, v0, p2}, Lcom/tamalbasak/musicplayer3d/DSPManager;->processDataWithMix([SIII)[S
 
     move-result-object p1
 
     return-object p1
+.end method
+
+.method public i()F
+    .locals 1
+
+    iget v0, p0, Lcom/tamalbasak/musicplayer3d/DSPManager;->k:F
+
+    return v0
+.end method
+
+.method public j(F)V
+    .locals 4
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    invoke-static {p1, v0}, Ljava/lang/Math;->min(FF)F
+
+    move-result p1
+
+    const/4 v0, 0x0
+
+    invoke-static {p1, v0}, Ljava/lang/Math;->max(FF)F
+
+    move-result p1
+
+    iput p1, p0, Lcom/tamalbasak/musicplayer3d/DSPManager;->k:F
+
+    invoke-static {}, Lcom/tamalbasak/musicplayer3d/d;->k()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/tamalbasak/musicplayer3d/c;->a(Landroid/content/Context;)Lcom/tamalbasak/musicplayer3d/c;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/tamalbasak/musicplayer3d/c$a;->p0:Lcom/tamalbasak/musicplayer3d/c$a;
+
+    const/high16 v2, 0x42c80000    # 100.0f
+
+    mul-float/2addr p1, v2
+
+    const/high16 v2, 0x41200000    # 10.0f
+
+    div-float/2addr p1, v2
+
+    float-to-int v2, p1
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/tamalbasak/musicplayer3d/c;->c(Lcom/tamalbasak/musicplayer3d/c$a;Ljava/lang/Object;Z)Lcom/tamalbasak/musicplayer3d/c;
+
+    return-void
+.end method
+
+.method public processDataWithMix([SIII)[S
+    .locals 8
+
+    iget v0, p0, Lcom/tamalbasak/musicplayer3d/DSPManager;->k:F
+
+    const/4 v6, 0x0
+
+    cmpg-float v2, v0, v6
+
+    if-gez v2, :cond_not_zero
+
+    return-object p1
+
+    :cond_not_zero
+    const/high16 v6, 0x3f800000    # 1.0f
+
+    cmpl-float v2, v0, v6
+
+    if-ltz v2, :cond_blend
+
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/tamalbasak/musicplayer3d/DSPManager;->processData([SIII)[S
+
+    move-result-object p1
+
+    return-object p1
+
+    :cond_blend
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/tamalbasak/musicplayer3d/DSPManager;->processData([SIII)[S
+
+    move-result-object v1
+
+    array-length v3, v1
+
+    const/4 v2, 0x0
+
+    :goto_0
+    if-ge v2, v3, :cond_done
+
+    aget-short v4, p1, v2
+
+    aget-short v5, v1, v2
+
+    sub-int/2addr v5, v4
+
+    int-to-float v5, v5
+
+    mul-float v5, v5, v0
+
+    float-to-int v5, v5
+
+    add-int/2addr v4, v5
+
+    int-to-short v4, v4
+
+    aput-short v4, v1, v2
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_done
+    return-object v1
 .end method
 
 .method public f(FLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)V

@@ -147,6 +147,8 @@
 
 .field public static final enum z:Lcom/tamalbasak/musicplayer3d/c$a;
 
+.field public static final enum p0:Lcom/tamalbasak/musicplayer3d/c$a;
+
 
 # instance fields
 .field private a:Ljava/lang/String;
@@ -988,6 +990,24 @@
 
     sput-object v0, Lcom/tamalbasak/musicplayer3d/c$a;->n0:Lcom/tamalbasak/musicplayer3d/c$a;
 
+    new-instance v0, Lcom/tamalbasak/musicplayer3d/c$a;
+
+    const/16 v1, 0x64
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string v2, "Settings_SurroundMixPercentage"
+
+    const/16 v3, 0x3d
+
+    const-string v4, "Settings_SurroundMixPercentage"
+
+    invoke-direct {v0, v2, v3, v4, v1}, Lcom/tamalbasak/musicplayer3d/c$a;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/Object;)V
+
+    sput-object v0, Lcom/tamalbasak/musicplayer3d/c$a;->p0:Lcom/tamalbasak/musicplayer3d/c$a;
+
     invoke-static {}, Lcom/tamalbasak/musicplayer3d/c$a;->a()[Lcom/tamalbasak/musicplayer3d/c$a;
 
     move-result-object v0
@@ -1020,7 +1040,7 @@
 .method private static synthetic a()[Lcom/tamalbasak/musicplayer3d/c$a;
     .locals 3
 
-    const/16 v0, 0x3d
+    const/16 v0, 0x3e
 
     new-array v0, v0, [Lcom/tamalbasak/musicplayer3d/c$a;
 
@@ -1387,6 +1407,12 @@
     sget-object v1, Lcom/tamalbasak/musicplayer3d/c$a;->n0:Lcom/tamalbasak/musicplayer3d/c$a;
 
     const/16 v2, 0x3c
+
+    aput-object v1, v0, v2
+
+    sget-object v1, Lcom/tamalbasak/musicplayer3d/c$a;->p0:Lcom/tamalbasak/musicplayer3d/c$a;
+
+    const/16 v2, 0x3d
 
     aput-object v1, v0, v2
 

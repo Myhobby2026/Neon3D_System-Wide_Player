@@ -191,6 +191,25 @@ Not exhaustively characterized here:
   across OEM dump formats, mute-effect edge cases, and added latency was not measured
   instrumentally. Report any device-specific issues as they arise.
 
+## Surround 7.1 mix knob
+
+The 3D / Surround 7.1 page (`V3dSurroundControl`) now has a third parameter: a **mix**
+knob drawn in the centre of the existing concentric circles. It sets how much of the
+surround effect is mixed into the output — 0% is the untouched dry signal, 100% is the
+full surround effect.
+
+- Value range 0–100, default 100.
+- Drag the centre knob up/down (or tap it) to change it; the ring around the knob and
+  the percentage label update live.
+- Stored in `SharedPreferences` under `Settings_SurroundMixPercentage`, so it survives
+  restarts independently of any preset.
+- Saved into every preset file as a trailing float and restored when a preset is
+  loaded, so presets keep their own mix value.
+- Applied in both playback paths. `DSPManager.processDataWithMix` blends the dry input
+  with the native `processData` output, and the system-wide service calls that same
+  method through `ExistingDspBridge` (falling back to plain `processData` on builds
+  without it).
+
 ## Attribution
 
 Session discovery/muting logic is adapted from

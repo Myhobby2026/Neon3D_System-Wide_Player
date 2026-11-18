@@ -90,6 +90,9 @@
     .line 42
     const-string v0, "processData"
 
+    :try_start_mix
+    const-string v0, "processDataWithMix"
+
     const/4 v2, 0x4
 
     new-array v2, v2, [Ljava/lang/Class;
@@ -117,6 +120,43 @@
     iput-object v0, p0, Lcom/tamalbasak/musicplayer3d/systemwide/ExistingDspBridge;->processData:Ljava/lang/reflect/Method;
 
     .line 43
+    iget-object v0, p0, Lcom/tamalbasak/musicplayer3d/systemwide/ExistingDspBridge;->processData:Ljava/lang/reflect/Method;
+
+    :try_end_mix
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_mix .. :try_end_mix} :catch_mix
+
+    goto :goto_mix
+
+    :catch_mix
+    const-string v0, "processData"
+
+    const/4 v2, 0x4
+
+    new-array v2, v2, [Ljava/lang/Class;
+
+    const-class v3, [S
+
+    aput-object v3, v2, v5
+
+    sget-object v3, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+
+    aput-object v3, v2, v4
+
+    sget-object v3, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+
+    aput-object v3, v2, v6
+
+    sget-object v3, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+
+    aput-object v3, v2, v7
+
+    invoke-virtual {v1, v0, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/tamalbasak/musicplayer3d/systemwide/ExistingDspBridge;->processData:Ljava/lang/reflect/Method;
+
+    :goto_mix
     iget-object v0, p0, Lcom/tamalbasak/musicplayer3d/systemwide/ExistingDspBridge;->processData:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0, v4}, Ljava/lang/reflect/Method;->setAccessible(Z)V

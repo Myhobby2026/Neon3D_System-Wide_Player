@@ -110,9 +110,23 @@
     goto :goto_0
 
     :cond_1
+    invoke-static {}, Lcom/tamalbasak/musicplayer3d/e;->e0()Lcom/tamalbasak/musicplayer3d/e;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/tamalbasak/musicplayer3d/e;->t0()Lcom/tamalbasak/musicplayer3d/DSPManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/tamalbasak/musicplayer3d/DSPManager;->i()F
+
+    move-result v0
+
     invoke-static {}, Lcom/tamalbasak/musicplayer3d/f;->g()Lcom/tamalbasak/musicplayer3d/f;
 
     move-result-object p1
+
+    iput v0, p1, Lcom/tamalbasak/musicplayer3d/f;->h:F
 
     new-instance v0, Lcom/tamalbasak/musicplayer3d/UI/t$d$a;
 

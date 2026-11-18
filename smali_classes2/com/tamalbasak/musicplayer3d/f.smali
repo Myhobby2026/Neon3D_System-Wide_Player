@@ -23,6 +23,8 @@
 
 .field private b:Ljava/lang/String;
 
+.field public h:F
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -43,6 +45,10 @@
     const-string v0, "txt"
 
     iput-object v0, p0, Lcom/tamalbasak/musicplayer3d/f;->b:Ljava/lang/String;
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    iput v0, p0, Lcom/tamalbasak/musicplayer3d/f;->h:F
 
     :try_start_0
     invoke-static {}, Lcom/tamalbasak/musicplayer3d/f;->h()Ljava/io/File;
@@ -987,6 +993,10 @@
     goto :goto_0
 
     :cond_0
+    iget v4, p0, Lcom/tamalbasak/musicplayer3d/f;->h:F
+
+    invoke-virtual {v3, v4}, Ljava/io/DataOutputStream;->writeFloat(F)V
+
     if-eqz p3, :cond_1
 
     const/4 p2, 0x2
@@ -1217,14 +1227,31 @@
     invoke-direct {v2, v3, v5}, Lcom/tamalbasak/musicplayer3d/f$c;-><init>(ZF)V
 
     aput-object v2, v1, v4
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->available()I
+
+    move-result v3
+
+    const/4 v4, 0x4
+
+    if-lt v3, v4, :cond_1
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readFloat()F
+
+    move-result v2
+
+    :cond_1
+    iput v2, p0, Lcom/tamalbasak/musicplayer3d/f;->h:F
+
     return-object v1
 
     :catch_0

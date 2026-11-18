@@ -39,7 +39,14 @@ public final class ExistingDspBridge {
             existing = constructor.newInstance(new Object[] { null });
         }
         dsp = existing;
-        processData = dspClass.getDeclaredMethod("processData", short[].class, int.class, int.class, int.class);
+        try {
+            // Surround 7.1 mix builds expose processDataWithMix, which blends the
+            // dry signal with the processed signal according to the mix value.
+            processData = dspClass.getDeclaredMethod("processDataWithMix", short[].class, int.class, int.class, int.class);
+        } catch (NoSuchMethodException e) {
+            // Older builds: fall back to the plain DSP processing path (no mix).
+            processData = dspClass.getDeclaredMethod("processData", short[].class, int.class, int.class, int.class);
+        }
         processData.setAccessible(true);
         applyPreset = dspClass.getMethod("d", String.class, boolean.class, Class.class);
         resetDefaults = dspClass.getMethod("c");

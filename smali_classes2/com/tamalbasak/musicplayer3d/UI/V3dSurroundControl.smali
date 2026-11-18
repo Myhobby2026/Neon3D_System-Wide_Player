@@ -60,7 +60,21 @@
 
 .field private x:I
 
-.field y:Lcom/tamalbasak/musicplayer3d/UI/f$a;
+.field private y:Lcom/tamalbasak/musicplayer3d/UI/f$a;
+
+.field private z:F
+
+.field private A:Z
+
+.field private B:I
+
+.field private C:F
+
+.field private D:Landroid/graphics/Paint;
+
+.field private E:Landroid/graphics/Paint;
+
+.field private F:Landroid/graphics/Paint;
 
 
 # direct methods
@@ -248,6 +262,92 @@
     invoke-direct {p1, p2}, Lcom/tamalbasak/musicplayer3d/UI/f;-><init>(Lcom/tamalbasak/musicplayer3d/UI/f$a;)V
 
     iput-object p1, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->r:Lcom/tamalbasak/musicplayer3d/UI/f;
+
+    const/high16 v0, 0x42c80000    # 100.0f
+
+    iput v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->z:F
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->A:Z
+
+    iput v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->B:I
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->C:F
+
+    new-instance v0, Landroid/graphics/Paint;
+
+    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+
+    iput-object v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->D:Landroid/graphics/Paint;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+
+    iget-object v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->D:Landroid/graphics/Paint;
+
+    sget-object v1, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    iget-object v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->D:Landroid/graphics/Paint;
+
+    const v1, 0xff222222
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
+
+    new-instance v0, Landroid/graphics/Paint;
+
+    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+
+    iput-object v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->E:Landroid/graphics/Paint;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+
+    iget-object v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->E:Landroid/graphics/Paint;
+
+    sget-object v1, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    iget-object v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->E:Landroid/graphics/Paint;
+
+    const v1, 0xff444444
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
+
+    new-instance v0, Landroid/graphics/Paint;
+
+    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+
+    iput-object v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->F:Landroid/graphics/Paint;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+
+    iget-object v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->F:Landroid/graphics/Paint;
+
+    sget-object v1, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    iget-object v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->F:Landroid/graphics/Paint;
+
+    const/4 v1, -0x1
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
+
+    iget-object v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->F:Landroid/graphics/Paint;
+
+    sget-object v1, Landroid/graphics/Paint$Align;->CENTER:Landroid/graphics/Paint$Align;
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setTextAlign(Landroid/graphics/Paint$Align;)V
 
     new-instance p1, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl$a;
 
@@ -1081,6 +1181,169 @@
 
     invoke-virtual {v2, v3, v6, v7, v0}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
+    # ---- Surround mix knob: centred inside the concentric circles ----
+    invoke-virtual {v1}, Landroid/view/View;->getWidth()I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    const/high16 v4, 0x40000000    # 2.0f
+
+    div-float/2addr v3, v4
+
+    invoke-virtual {v1}, Landroid/view/View;->getHeight()I
+
+    move-result v4
+
+    int-to-float v4, v4
+
+    const/high16 v5, 0x40000000    # 2.0f
+
+    div-float/2addr v4, v5
+
+    invoke-virtual {v1}, Landroid/view/View;->getWidth()I
+
+    move-result v5
+
+    int-to-float v5, v5
+
+    const v6, 0x3f333333    # 0.7f
+
+    mul-float/2addr v5, v6
+
+    const/high16 v6, 0x40000000    # 2.0f
+
+    div-float/2addr v5, v6
+
+    const v6, 0x3eb33333    # 0.35f
+
+    mul-float/2addr v6, v5
+
+    iget-object v7, v1, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->E:Landroid/graphics/Paint;
+
+    const v8, 0x3df5c28f    # 0.12f
+
+    mul-float/2addr v8, v6
+
+    invoke-virtual {v7, v8}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+
+    iget-object v7, v1, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->E:Landroid/graphics/Paint;
+
+    const v8, 0xff444444
+
+    invoke-virtual {v7, v8}, Landroid/graphics/Paint;->setColor(I)V
+
+    iget-object v7, v1, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->E:Landroid/graphics/Paint;
+
+    invoke-virtual {v2, v3, v4, v6, v7}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
+
+    new-instance v7, Landroid/graphics/RectF;
+
+    sub-float v8, v3, v6
+
+    sub-float v9, v4, v6
+
+    add-float v10, v3, v6
+
+    add-float v11, v4, v6
+
+    invoke-direct {v7, v8, v9, v10, v11}, Landroid/graphics/RectF;-><init>(FFFF)V
+
+    move-object v6, v2
+
+    iget-object v11, v1, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->E:Landroid/graphics/Paint;
+
+    const v8, 0xff00c853
+
+    invoke-virtual {v11, v8}, Landroid/graphics/Paint;->setColor(I)V
+
+    const v8, 0xc2b40000    # -90.0f
+
+    iget v9, v1, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->z:F
+
+    const/high16 v10, 0x42c80000    # 100.0f
+
+    div-float/2addr v9, v10
+
+    const v10, 0x43b40000    # 360.0f
+
+    mul-float/2addr v9, v10
+
+    const/4 v10, 0x0
+
+    invoke-virtual/range {v6 .. v11}, Landroid/graphics/Canvas;->drawArc(Landroid/graphics/RectF;FFZLandroid/graphics/Paint;)V
+
+    invoke-virtual {v1}, Landroid/view/View;->getWidth()I
+
+    move-result v6
+
+    int-to-float v6, v6
+
+    const v7, 0x3f333333    # 0.7f
+
+    mul-float/2addr v6, v7
+
+    const/high16 v7, 0x40000000    # 2.0f
+
+    div-float/2addr v6, v7
+
+    const v7, 0x3eb33333    # 0.35f
+
+    mul-float/2addr v6, v7
+
+    iget-object v7, v1, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->D:Landroid/graphics/Paint;
+
+    const v8, 0x3f4ccccd    # 0.8f
+
+    mul-float/2addr v8, v6
+
+    invoke-virtual {v2, v3, v4, v8, v7}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
+
+    iget-object v7, v1, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->F:Landroid/graphics/Paint;
+
+    const v8, 0x3e99999a    # 0.3f
+
+    mul-float/2addr v8, v6
+
+    invoke-virtual {v7, v8}, Landroid/graphics/Paint;->setTextSize(F)V
+
+    iget v7, v1, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->z:F
+
+    float-to-int v7, v7
+
+    invoke-static {v7}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string v9, "%"
+
+    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    const v9, 0x3eb33333    # 0.35f
+
+    mul-float/2addr v9, v8
+
+    add-float/2addr v9, v4
+
+    iget-object v8, v1, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->F:Landroid/graphics/Paint;
+
+    invoke-virtual {v2, v7, v3, v9, v8}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+
     return-void
 .end method
 
@@ -1182,6 +1445,24 @@
     iput v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->p:F
 
     :cond_0
+    invoke-static {}, Lcom/tamalbasak/musicplayer3d/e;->e0()Lcom/tamalbasak/musicplayer3d/e;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/tamalbasak/musicplayer3d/e;->t0()Lcom/tamalbasak/musicplayer3d/DSPManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/tamalbasak/musicplayer3d/DSPManager;->i()F
+
+    move-result v0
+
+    const/high16 v1, 0x42c80000    # 100.0f
+
+    mul-float/2addr v0, v1
+
+    iput v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->z:F
+
     if-eqz p1, :cond_1
 
     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
@@ -1223,7 +1504,7 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 3
+    .locals 12
 
     invoke-static {}, Lcom/tamalbasak/musicplayer3d/UI/t;->v()Lcom/tamalbasak/musicplayer3d/UI/t;
 
@@ -1251,6 +1532,91 @@
     return v1
 
     :cond_1
+    # --- does the touch land on the centre mix knob? ---
+    const/4 v0, 0x2
+
+    new-array v0, v0, [I
+
+    invoke-virtual {p0, v0}, Landroid/view/View;->getLocationOnScreen([I)V
+
+    const/4 v1, 0x0
+
+    aget v1, v0, v1
+
+    int-to-float v1, v1
+
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+
+    move-result v2
+
+    int-to-float v2, v2
+
+    const/high16 v3, 0x40000000    # 2.0f
+
+    div-float/2addr v2, v3
+
+    add-float/2addr v1, v2
+
+    const/4 v2, 0x1
+
+    aget v0, v0, v2
+
+    int-to-float v0, v0
+
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
+
+    move-result v2
+
+    int-to-float v2, v2
+
+    const/high16 v3, 0x40000000    # 2.0f
+
+    div-float/2addr v2, v3
+
+    add-float/2addr v0, v2
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
+
+    move-result v2
+
+    sub-float/2addr v2, v1
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
+
+    move-result v3
+
+    sub-float/2addr v3, v0
+
+    mul-float v4, v2, v2
+
+    mul-float v5, v3, v3
+
+    add-float/2addr v4, v5
+
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+
+    move-result v2
+
+    int-to-float v2, v2
+
+    const v3, 0x3f333333    # 0.7f
+
+    mul-float/2addr v2, v3
+
+    const/high16 v3, 0x40000000    # 2.0f
+
+    div-float/2addr v2, v3
+
+    const v3, 0x3eb33333    # 0.35f
+
+    mul-float/2addr v2, v3
+
+    mul-float v2, v2, v2
+
+    cmpg-float v2, v4, v2
+
+    if-lez v2, :cond_knob
+
     iget-object v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->r:Lcom/tamalbasak/musicplayer3d/UI/f;
 
     invoke-virtual {v0, p1}, Lcom/tamalbasak/musicplayer3d/UI/f;->a(Landroid/view/MotionEvent;)Z
@@ -1258,6 +1624,155 @@
     move-result p1
 
     return p1
+
+    :cond_knob
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v7
+
+    if-eqz v7, :cond_knob_down
+
+    const/4 v0, 0x2
+
+    if-ne v7, v0, :cond_knob_up
+
+    # ---- move: drag the mix knob ----
+    iget-boolean v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->A:Z
+
+    if-nez v0, :cond_move_done
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
+
+    move-result v0
+
+    float-to-int v0, v0
+
+    iget v1, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->B:I
+
+    sub-int/2addr v0, v1
+
+    int-to-float v0, v0
+
+    neg-float v0, v0
+
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+
+    move-result v1
+
+    int-to-float v1, v1
+
+    const v2, 0x3f333333    # 0.7f
+
+    mul-float/2addr v1, v2
+
+    const/high16 v2, 0x40000000    # 2.0f
+
+    div-float/2addr v1, v2
+
+    div-float/2addr v0, v1
+
+    const/high16 v1, 0x42c80000    # 100.0f
+
+    mul-float/2addr v0, v1
+
+    iget v1, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->C:F
+
+    add-float/2addr v0, v1
+
+    const/high16 v1, 0x42c80000    # 100.0f
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(FF)F
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->max(FF)F
+
+    move-result v0
+
+    iput v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->z:F
+
+    invoke-static {}, Lcom/tamalbasak/musicplayer3d/e;->e0()Lcom/tamalbasak/musicplayer3d/e;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/tamalbasak/musicplayer3d/e;->t0()Lcom/tamalbasak/musicplayer3d/DSPManager;
+
+    move-result-object v1
+
+    const/high16 v2, 0x42c80000    # 100.0f
+
+    div-float/2addr v0, v2
+
+    invoke-virtual {v1, v0}, Lcom/tamalbasak/musicplayer3d/DSPManager;->j(F)V
+
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+
+    :cond_move_done
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_knob_down
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->A:Z
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
+
+    move-result v0
+
+    float-to-int v0, v0
+
+    iput v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->B:I
+
+    iget v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->z:F
+
+    iput v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->C:F
+
+    invoke-static {}, Lcom/tamalbasak/musicplayer3d/UI/t;->v()Lcom/tamalbasak/musicplayer3d/UI/t;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/tamalbasak/musicplayer3d/UI/t;->h:Lcom/tamalbasak/musicplayer3d/UI/XControls/XViewPager;
+
+    if-eqz v0, :cond_down_paging
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/tamalbasak/musicplayer3d/UI/XControls/XViewPager;->setPagingEnabled(Z)V
+
+    :cond_down_paging
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_knob_up
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->A:Z
+
+    iget-object v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->t:Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl$c;
+
+    invoke-interface {v0, p0}, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl$c;->d(Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;)V
+
+    invoke-static {}, Lcom/tamalbasak/musicplayer3d/UI/t;->v()Lcom/tamalbasak/musicplayer3d/UI/t;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/tamalbasak/musicplayer3d/UI/t;->h:Lcom/tamalbasak/musicplayer3d/UI/XControls/XViewPager;
+
+    if-eqz v0, :cond_up_paging
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/tamalbasak/musicplayer3d/UI/XControls/XViewPager;->setPagingEnabled(Z)V
+
+    :cond_up_paging
+    const/4 v0, 0x1
+
+    return v0
 .end method
 
 .method public setEnable(Z)V
