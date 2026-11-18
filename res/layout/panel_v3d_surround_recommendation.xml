@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#dc000000" android:padding="2.0dp" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/border_background_for_popupview" android:padding="2.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_marginBottom="20.0dp" android:layout_centerInParent="true" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+        <TextView android:textSize="21.0sp" android:textStyle="bold" android:textColor="#ff0000" android:background="@drawable/button_background_pink" android:paddingTop="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/v3d_recommendation_warning" android:textAlignment="center" />
+        <TextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="#797979" android:background="@drawable/button_background_pink" android:padding="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/v3d_recommendation_warning_description" android:textAlignment="center" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffff" android:layout_gravity="center_horizontal" android:id="@id/textView_RecommendedDevices" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/recommended_devices_for_3d_sound" android:textAlignment="center" android:layout_marginStart="5.0dp" android:layout_marginEnd="5.0dp" />
+        <ScrollView android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0">
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="100.0dp" android:baselineAligned="false">
+                    <RelativeLayout android:background="#30000000" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_margin="1.0dp" android:layout_weight="1.0">
+                        <TextView android:textColor="#c1c1c1" android:id="@id/textView_WiredHeadphone" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/wired_headphone_or_headset" android:layout_alignParentBottom="true" android:textAlignment="center" />
+                        <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:padding="5.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:layout_above="@id/textView_WiredHeadphone" app:color_replace_with="#ffffff" app:glideSrc="@drawable/wired_headphone" />
+                    </RelativeLayout>
+                    <RelativeLayout android:background="#30000000" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_margin="1.0dp" android:layout_weight="1.0">
+                        <TextView android:textColor="#c1c1c1" android:id="@id/textView_WirelessHeadphone" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/wireless_headphone_headset" android:layout_alignParentBottom="true" android:textAlignment="center" />
+                        <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:padding="5.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:layout_above="@id/textView_WirelessHeadphone" app:color_replace_with="#ffffff" app:glideSrc="@drawable/wireless_headphone" />
+                    </RelativeLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="100.0dp" android:baselineAligned="false">
+                    <RelativeLayout android:background="#30000000" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_margin="1.0dp" android:layout_weight="1.0">
+                        <TextView android:textColor="#c1c1c1" android:id="@id/textView_HomeTheather" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/home_theater" android:layout_alignParentBottom="true" android:textAlignment="center" />
+                        <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:padding="5.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:layout_above="@id/textView_HomeTheather" app:color_replace_with="#ffffff" app:glideSrc="@drawable/home_theater_icon" />
+                    </RelativeLayout>
+                    <RelativeLayout android:background="#30000000" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_margin="1.0dp" android:layout_weight="1.0">
+                        <TextView android:textColor="#c1c1c1" android:id="@id/textView_CarAudio" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/car_audio" android:layout_alignParentBottom="true" android:textAlignment="center" />
+                        <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:padding="5.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:layout_above="@id/textView_CarAudio" app:color_replace_with="#ffffff" app:glideSrc="@drawable/car_icon" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+        <Button android:id="@id/button_GotIIt" android:background="@drawable/button_background_pink" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/got_it" />
+    </LinearLayout>
+</RelativeLayout>

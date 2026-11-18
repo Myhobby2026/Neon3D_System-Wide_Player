@@ -1,0 +1,132 @@
+.class final Lio/grpc/internal/p$e$c;
+.super Lio/grpc/internal/x;
+.source "ClientCallImpl.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lio/grpc/internal/p$e;->j(Lj8/c1;Lio/grpc/internal/r$a;Lj8/r0;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x10
+    name = "c"
+.end annotation
+
+
+# instance fields
+.field final synthetic b:Lr8/b;
+
+.field final synthetic c:Lj8/c1;
+
+.field final synthetic d:Lj8/r0;
+
+.field final synthetic e:Lio/grpc/internal/p$e;
+
+
+# direct methods
+.method constructor <init>(Lio/grpc/internal/p$e;Lr8/b;Lj8/c1;Lj8/r0;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()V"
+        }
+    .end annotation
+
+    iput-object p1, p0, Lio/grpc/internal/p$e$c;->e:Lio/grpc/internal/p$e;
+
+    iput-object p2, p0, Lio/grpc/internal/p$e$c;->b:Lr8/b;
+
+    iput-object p3, p0, Lio/grpc/internal/p$e$c;->c:Lj8/c1;
+
+    iput-object p4, p0, Lio/grpc/internal/p$e$c;->d:Lj8/r0;
+
+    iget-object p1, p1, Lio/grpc/internal/p$e;->c:Lio/grpc/internal/p;
+
+    invoke-static {p1}, Lio/grpc/internal/p;->n(Lio/grpc/internal/p;)Lj8/q;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Lio/grpc/internal/x;-><init>(Lj8/q;)V
+
+    return-void
+.end method
+
+.method private b()V
+    .locals 3
+
+    iget-object v0, p0, Lio/grpc/internal/p$e$c;->e:Lio/grpc/internal/p$e;
+
+    invoke-static {v0}, Lio/grpc/internal/p$e;->f(Lio/grpc/internal/p$e;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lio/grpc/internal/p$e$c;->e:Lio/grpc/internal/p$e;
+
+    iget-object v1, p0, Lio/grpc/internal/p$e$c;->c:Lj8/c1;
+
+    iget-object v2, p0, Lio/grpc/internal/p$e$c;->d:Lj8/r0;
+
+    invoke-static {v0, v1, v2}, Lio/grpc/internal/p$e;->h(Lio/grpc/internal/p$e;Lj8/c1;Lj8/r0;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public a()V
+    .locals 3
+
+    iget-object v0, p0, Lio/grpc/internal/p$e$c;->e:Lio/grpc/internal/p$e;
+
+    iget-object v0, v0, Lio/grpc/internal/p$e;->c:Lio/grpc/internal/p;
+
+    invoke-static {v0}, Lio/grpc/internal/p;->p(Lio/grpc/internal/p;)Lr8/d;
+
+    move-result-object v0
+
+    const-string v1, "ClientCall$Listener.onClose"
+
+    invoke-static {v1, v0}, Lr8/c;->g(Ljava/lang/String;Lr8/d;)V
+
+    iget-object v0, p0, Lio/grpc/internal/p$e$c;->b:Lr8/b;
+
+    invoke-static {v0}, Lr8/c;->d(Lr8/b;)V
+
+    :try_start_0
+    invoke-direct {p0}, Lio/grpc/internal/p$e$c;->b()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    iget-object v0, p0, Lio/grpc/internal/p$e$c;->e:Lio/grpc/internal/p$e;
+
+    iget-object v0, v0, Lio/grpc/internal/p$e;->c:Lio/grpc/internal/p;
+
+    invoke-static {v0}, Lio/grpc/internal/p;->p(Lio/grpc/internal/p;)Lr8/d;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Lr8/c;->i(Ljava/lang/String;Lr8/d;)V
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    iget-object v2, p0, Lio/grpc/internal/p$e$c;->e:Lio/grpc/internal/p$e;
+
+    iget-object v2, v2, Lio/grpc/internal/p$e;->c:Lio/grpc/internal/p;
+
+    invoke-static {v2}, Lio/grpc/internal/p;->p(Lio/grpc/internal/p;)Lr8/d;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lr8/c;->i(Ljava/lang/String;Lr8/d;)V
+
+    throw v0
+.end method

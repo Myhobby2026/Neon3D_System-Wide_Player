@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mainLayout" android:background="#3e3e3e" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textStyle="bold" android:textColor="@android:color/white" android:id="@id/textView_Header" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/select_album_art" android:textAlignment="center" app:layout_constraintTop_toTopOf="parent" />
+    <WebView android:id="@id/webView" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="0.0dp" app:layout_constraintBottom_toBottomOf="@id/recyclerView" app:layout_constraintTop_toTopOf="@id/recyclerView" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/recyclerView" android:background="@android:color/black" android:layout_width="match_parent" android:layout_height="0.0dp" app:layout_constraintBottom_toTopOf="@id/button_Cancel" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/textView_Header" />
+    <Button android:id="@id/button_Cancel" android:background="@drawable/button_background_pink" android:layout_width="match_parent" android:layout_height="50.0dp" android:text="@string/cancel" app:layout_constraintBottom_toBottomOf="parent" />
+    <ProgressBar android:id="@id/progressBar" android:layout_width="50.0dp" android:layout_height="50.0dp" android:indeterminate="true" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

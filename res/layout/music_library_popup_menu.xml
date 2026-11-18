@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#50ff0000" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="#ee2f5a9f" android:layout_width="170.0dp" android:layout_height="50.0dp">
+        <Button android:textSize="11.0sp" android:id="@id/button_Play" android:background="@drawable/button_background" android:paddingLeft="60.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:text="Play" android:layout_alignParentRight="true" android:textAllCaps="false" android:textAlignment="textStart" />
+        <ImageView android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/music_library_menu_item_play" />
+    </RelativeLayout>
+    <RelativeLayout android:background="#ee2f5a9f" android:layout_width="170.0dp" android:layout_height="50.0dp">
+        <Button android:textSize="11.0sp" android:id="@id/button_Delete" android:background="@drawable/button_background" android:paddingLeft="60.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:text="Delete" android:layout_alignParentRight="true" android:textAllCaps="false" android:textAlignment="textStart" />
+        <ImageView android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/music_library_menu_item_delete" />
+    </RelativeLayout>
+    <RelativeLayout android:background="#ee2f5a9f" android:layout_width="170.0dp" android:layout_height="50.0dp">
+        <Button android:textSize="11.0sp" android:id="@id/button_AddToQueue" android:background="@drawable/button_background" android:paddingLeft="60.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:text="Add To Queue" android:layout_alignParentRight="true" android:textAllCaps="false" android:textAlignment="textStart" />
+        <ImageView android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/music_library_menu_item_add_to_queue" />
+    </RelativeLayout>
+    <RelativeLayout android:background="#ee2f5a9f" android:layout_width="170.0dp" android:layout_height="50.0dp">
+        <Button android:textSize="11.0sp" android:id="@id/imageView_Favourite" android:background="@drawable/button_background" android:paddingLeft="60.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:text="Add To Favourite" android:layout_alignParentRight="true" android:textAllCaps="false" android:textAlignment="textStart" />
+        <ImageView android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/music_library_menu_item_add_to_favourite" />
+    </RelativeLayout>
+    <RelativeLayout android:background="#ee2f5a9f" android:layout_width="170.0dp" android:layout_height="50.0dp">
+        <Button android:textSize="11.0sp" android:id="@id/button_AddToPlaylist" android:background="@drawable/button_background" android:paddingLeft="60.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:text="Add To Playlist" android:layout_alignParentRight="true" android:textAllCaps="false" android:textAlignment="textStart" />
+        <ImageView android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/music_library_menu_item_add_to_playlist" />
+    </RelativeLayout>
+</LinearLayout>

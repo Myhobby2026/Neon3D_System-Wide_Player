@@ -1,0 +1,134 @@
+.class public final Lc3/l;
+.super Ljava/lang/Object;
+.source "MetadataBackendRegistry_Factory.java"
+
+# interfaces
+.implements Ld3/b;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Ld3/b<",
+        "Lc3/k;",
+        ">;"
+    }
+.end annotation
+
+
+# instance fields
+.field private final a:Ls8/a;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ls8/a<",
+            "Landroid/content/Context;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final b:Ls8/a;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ls8/a<",
+            "Lc3/i;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>(Ls8/a;Ls8/a;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ls8/a<",
+            "Landroid/content/Context;",
+            ">;",
+            "Ls8/a<",
+            "Lc3/i;",
+            ">;)V"
+        }
+    .end annotation
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lc3/l;->a:Ls8/a;
+
+    iput-object p2, p0, Lc3/l;->b:Ls8/a;
+
+    return-void
+.end method
+
+.method public static a(Ls8/a;Ls8/a;)Lc3/l;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ls8/a<",
+            "Landroid/content/Context;",
+            ">;",
+            "Ls8/a<",
+            "Lc3/i;",
+            ">;)",
+            "Lc3/l;"
+        }
+    .end annotation
+
+    new-instance v0, Lc3/l;
+
+    invoke-direct {v0, p0, p1}, Lc3/l;-><init>(Ls8/a;Ls8/a;)V
+
+    return-object v0
+.end method
+
+.method public static c(Landroid/content/Context;Ljava/lang/Object;)Lc3/k;
+    .locals 1
+
+    new-instance v0, Lc3/k;
+
+    check-cast p1, Lc3/i;
+
+    invoke-direct {v0, p0, p1}, Lc3/k;-><init>(Landroid/content/Context;Lc3/i;)V
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public b()Lc3/k;
+    .locals 2
+
+    iget-object v0, p0, Lc3/l;->a:Ls8/a;
+
+    invoke-interface {v0}, Ls8/a;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/Context;
+
+    iget-object v1, p0, Lc3/l;->b:Ls8/a;
+
+    invoke-interface {v1}, Ls8/a;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lc3/l;->c(Landroid/content/Context;Ljava/lang/Object;)Lc3/k;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic get()Ljava/lang/Object;
+    .locals 1
+
+    invoke-virtual {p0}, Lc3/l;->b()Lc3/k;
+
+    move-result-object v0
+
+    return-object v0
+.end method

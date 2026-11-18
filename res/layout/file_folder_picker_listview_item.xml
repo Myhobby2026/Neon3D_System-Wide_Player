@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="50.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/imageView_FileFolderIcon" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_margin="5.0dp" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <TextView android:textStyle="bold" android:id="@id/textView_Name" android:paddingLeft="5.0dp" android:paddingRight="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="ABCD" android:layout_toRightOf="@id/imageView_FileFolderIcon" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/imageView" android:background="#50080808" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#ffffff" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="17.0dp" android:textStyle="bold" android:textColor="#ffffff" android:id="@id/textView_Header" android:background="#a0000000" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="50.0dp" android:text="Message Viewer" android:textAlignment="center" />
+    <ListView android:id="@id/listView" android:layout_width="match_parent" android:layout_height="200.0dp" android:layout_below="@id/textView_Header" />
+    <Button android:textSize="18.0sp" android:textStyle="bold" android:id="@id/button_OK" android:background="#a0000000" android:layout_width="match_parent" android:layout_height="50.0dp" android:text="OK" android:layout_below="@id/listView" />
+</RelativeLayout>

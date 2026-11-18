@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/frameLayout_Header" android:layout_width="match_parent" android:layout_height="250.0dp" android:layout_alignParentTop="true">
+        <ImageView android:id="@id/imageView_Background" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:background="#a0000000" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="#ffffff" android:id="@id/textView_AlbumName" android:padding="5.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Hamari Adhuri Kahani" android:scaleX="1.1" android:textAlignment="textStart" android:paddingStart="30.0dp" android:paddingEnd="30.0dp" />
+            <TextView android:textSize="13.0sp" android:textColor="#ffffff" android:id="@id/textView_OtherDetails" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="120 Tracks  :::  10h 30m 99s" android:scaleX="1.1" android:paddingStart="30.0dp" android:paddingEnd="30.0dp" />
+        </LinearLayout>
+    </FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/recyclerView" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/frameLayout_Header" />
+</RelativeLayout>

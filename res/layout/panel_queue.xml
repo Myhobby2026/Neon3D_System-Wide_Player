@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#00ffffff" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/adContainer" android:background="#001323" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentEnd="true" layout="@layout/ad_container" />
+    <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="#ffffff" android:id="@id/textView_Header" android:background="@color/color_of_panelqueue_header" android:padding="10.0dp" android:layout_width="320.0dp" android:layout_height="wrap_content" android:text="@string/current_playing_songs" android:layout_below="@id/adContainer" android:layout_alignParentEnd="true" />
+    <View android:id="@id/view" android:background="@color/color_of_panelqueue_background" android:layout_width="320.0dp" android:layout_height="3.0dp" android:layout_below="@id/textView_Header" android:layout_alignParentEnd="true" />
+    <ListView android:id="@id/listView_Queue" android:background="@color/color_of_panelqueue_background" android:layout_width="320.0dp" android:layout_height="match_parent" android:layout_below="@id/view" android:paddingStart="3.0dp" android:paddingEnd="3.0dp" android:layout_alignParentEnd="true" />
+    <View android:background="@drawable/shadow_left" android:layout_width="40.0dp" android:layout_height="match_parent" android:layout_below="@id/adContainer" android:layout_toStartOf="@id/listView_Queue" />
+</RelativeLayout>

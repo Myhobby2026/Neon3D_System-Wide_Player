@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tamalbasak.musicplayer3d.UI.CircularSeekBar android:id="@id/circularSeekBar" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_margin="50.0dp" android:layout_centerInParent="true" app:pathBackgroundColor="#1e1e1e" app:pathForegroundEndColor="#ff0004" app:pathForegroundStartColor="#ff0077" app:pathThikness="15.0dp" app:percentageFontSize="30.0dp" app:percetageColor="#ffffff" app:progress="90" />
+</RelativeLayout>

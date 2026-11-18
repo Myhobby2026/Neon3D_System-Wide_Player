@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tamalbasak.musicplayer3d.UI.XControls.XFrameLayout android:id="@id/frameLayout_AlbumArt" android:background="#30ffffff" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_margin="15.0dp" app:isSquare="true">
+        <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:id="@id/imageView_AlbumArt" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_margin="5.0dp" android:scaleType="centerCrop" app:glideSrc="@drawable/album_art_blank_v2" app:isSquare="true" />
+        <ProgressBar android:layout_gravity="center" android:id="@id/progressBar" android:visibility="invisible" android:layout_width="50.0dp" android:layout_height="50.0dp" android:indeterminate="true" />
+    </com.tamalbasak.musicplayer3d.UI.XControls.XFrameLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/linearLayout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_marginEnd="20.0dp" android:layout_toEndOf="@id/frameLayout_AlbumArt">
+        <TextView android:textSize="20.0sp" android:id="@id/textView_TrackName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Track 15" android:transformPivotX="0.0dp" android:layout_marginStart="10.0dp" style="@style/TextViewTrackNameStyle" />
+        <TextView android:textSize="18.0sp" android:id="@id/textView_AlbumName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="DON" android:transformPivotX="0.0dp" android:layout_marginStart="10.0dp" style="@style/TextViewAlbumArtistStyle" />
+        <TextView android:textSize="18.0sp" android:id="@id/textView_ArtistName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Kishore Kumar" android:transformPivotX="0.0dp" android:layout_marginStart="10.0dp" style="@style/TextViewAlbumArtistStyle" />
+    </LinearLayout>
+</RelativeLayout>

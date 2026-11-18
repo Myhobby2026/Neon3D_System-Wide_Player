@@ -1,0 +1,14 @@
+.cache/
+build/
+dist/
+out/
+*.apk
+*.aab
+# The built APK is published in releases/ on this branch so it can be downloaded
+# straight from the repo (GitHub Release asset uploads are unreachable from the build sandbox).
+!releases/*.apk
+!releases/*.sha256
+*.p12
+*.jks
+*.keystore
+*.pem

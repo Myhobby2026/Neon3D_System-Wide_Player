@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/mainLayout" android:background="@color/listView_item_normal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="1.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="75.0dp">
+        <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:id="@id/imageView_FileFolderIcon" android:padding="15.0dp" android:layout_width="75.0dp" android:layout_height="75.0dp" app:color_replace_with="#00ff00" />
+        <TextView android:textStyle="bold" android:textColor="#ffffff" android:layout_gravity="center_vertical" android:id="@id/textView_FileFolderName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:layout_marginEnd="10.0dp" />
+    </LinearLayout>
+</LinearLayout>

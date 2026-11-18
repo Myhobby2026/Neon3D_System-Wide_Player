@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/textView_Header" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="@string/please_wait" android:layout_centerHorizontal="true" />
+    <ProgressBar android:id="@id/progressBar" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:max="1000" android:progress="224" android:layout_below="@id/textView_Header" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp" style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
+    <TextView android:textStyle="bold" android:textColor="#00ff37" android:id="@id/textView_Progress" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="0/0" android:layout_below="@id/progressBar" android:layout_marginStart="20.0dp" android:layout_alignParentStart="true" />
+    <TextView android:textStyle="bold" android:textColor="#ff0000" android:id="@id/textView_Error" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="Error: 0" android:layout_below="@id/progressBar" android:layout_centerHorizontal="true" android:layout_marginEnd="20.0dp" android:layout_alignParentEnd="true" />
+    <Button android:id="@id/button_Cancel" android:background="@drawable/button_background_pink" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="@string/cancel" android:layout_below="@id/textView_Progress" />
+</RelativeLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="#151515" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="23.0sp" android:textStyle="bold" android:textColor="#ffffff" android:id="@id/textView_Header" android:background="#474747" android:paddingTop="15.0dp" android:paddingBottom="15.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/permissions_required" android:layout_centerHorizontal="true" android:textAlignment="center" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/linearLayout_Bottom" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <Button android:textColor="#c6c6c6" android:layout_gravity="center" android:id="@id/button_Close" android:background="#393939" android:layout_width="150.0dp" android:layout_height="50.0dp" android:text="@string/close" />
+        <Button android:textStyle="bold" android:id="@id/button_GrantPermission" android:background="#ff3f5b" android:layout_width="0.0dp" android:layout_height="50.0dp" android:text="@string/grant_permissions" android:layout_weight="1.0" />
+    </LinearLayout>
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="10.0dp" android:layout_above="@id/linearLayout_Bottom" android:layout_below="@id/textView_Header">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:padding="10.0dp" android:layout_width="50.0dp" android:layout_height="50.0dp" app:color_replace_with="#ffffff" app:glideSrc="@drawable/music_library" />
+                <TextView android:textStyle="bold" android:textColor="#ffffff" android:layout_gravity="center_vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/permission_access_files_header" android:layout_weight="1.0" />
+                <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:id="@id/imageView_Permission_AccessFiles_State" android:padding="10.0dp" android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/ok_icon" />
+            </LinearLayout>
+            <TextView android:textColor="#5b5b5b" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/permission_access_files_explanation" android:layout_marginStart="50.0dp" android:layout_marginEnd="50.0dp" />
+            <View android:background="#50ffffff" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_margin="20.0dp" />
+            <LinearLayout android:orientation="vertical" android:id="@id/linearLayout_AccessNotification" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:padding="12.0dp" android:layout_width="50.0dp" android:layout_height="50.0dp" app:color_replace_with="#ffffff" app:glideSrc="@drawable/notifications" />
+                    <TextView android:textStyle="bold" android:textColor="#ffffff" android:layout_gravity="center_vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/permission_access_notification" android:layout_weight="1.0" />
+                    <ImageView android:id="@id/imageView_Permission_Notification" android:padding="10.0dp" android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/ok_icon" />
+                </LinearLayout>
+                <TextView android:textColor="#5b5b5b" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.0dp" android:text="@string/permission_access_notification__explanation" android:layout_marginStart="50.0dp" android:layout_marginEnd="50.0dp" />
+                <View android:background="#50ffffff" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_margin="20.0dp" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:padding="12.0dp" android:layout_width="50.0dp" android:layout_height="50.0dp" app:color_replace_with="#ffffff" app:glideSrc="@drawable/bluetooth_connect" />
+                <TextView android:textStyle="bold" android:textColor="#ffffff" android:layout_gravity="center_vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/permission_bluetooth_connect" android:layout_weight="1.0" />
+                <ImageView android:id="@id/imageView_Permission_BluetoothConnect" android:padding="10.0dp" android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/ok_icon" />
+            </LinearLayout>
+            <TextView android:textColor="#5b5b5b" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.0dp" android:text="@string/permission_bluetooth_connect__explanation" android:layout_marginStart="50.0dp" android:layout_marginEnd="50.0dp" />
+            <View android:background="#50ffffff" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_margin="20.0dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:padding="12.0dp" android:layout_width="50.0dp" android:layout_height="50.0dp" app:color_replace_with="#ffffff" app:glideSrc="@drawable/record_sound" />
+                <TextView android:textStyle="bold" android:textColor="#ffffff" android:layout_gravity="center_vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/permission_record_audio_header" android:layout_weight="1.0" />
+                <ImageView android:id="@id/imageView_Permission_RecordSound_State" android:padding="10.0dp" android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/ok_icon" />
+            </LinearLayout>
+            <TextView android:textColor="#5b5b5b" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.0dp" android:text="@string/permission_record_audio_explanation" android:layout_marginStart="50.0dp" android:layout_marginEnd="50.0dp" />
+        </LinearLayout>
+    </ScrollView>
+    <ProgressBar android:id="@id/progressBar" android:visibility="gone" android:layout_width="50.0dp" android:layout_height="50.0dp" android:indeterminate="true" android:layout_centerInParent="true" />
+</RelativeLayout>

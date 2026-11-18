@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:id="@id/button_OnOff" android:background="@drawable/effect_on_icon" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_margin="10.0dp" android:layout_alignParentTop="true" android:layout_alignParentEnd="true" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tamalbasak.musicplayer3d.UI.V3dSurroundControl android:layout_gravity="center_vertical" android:id="@id/v3d_surround_viewer" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="2.0" />
+        <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:id="@id/imageView_instruction_V3D_Surround" android:layout_width="0.0dp" android:layout_height="match_parent" android:scaleType="fitCenter" android:layout_weight="1.0" android:alpha="0.2" app:glideSrc="@drawable/instruction_for_v3d_control" />
+    </LinearLayout>
+</RelativeLayout>

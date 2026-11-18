@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#000000" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="21.0sp" android:textStyle="bold" android:textColor="#919191" android:id="@id/textView_UP" android:padding="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/no_music" android:layout_centerInParent="true" android:textAlignment="center" />
+    <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="#404040" android:id="@id/textView_DOWN" android:padding="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/please_add_one_or_more_music_file_and_restart_the_application" android:layout_below="@id/textView_UP" android:layout_centerHorizontal="true" android:textAlignment="center" />
+</RelativeLayout>

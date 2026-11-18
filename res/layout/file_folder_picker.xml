@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="14.0dp" android:textStyle="bold" android:textColor="#ffffff" android:id="@id/textView_Header" android:background="#400088ff" android:padding="15.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Select File/Folder" android:layout_alignParentTop="true" android:textAlignment="center" />
+    <ListView android:id="@id/listView" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/horizontalScrollView" android:layout_below="@id/textView_Header" />
+    <com.tamalbasak.library.ListviewJumpSelector android:id="@id/jumpSelector" android:background="#50000000" android:layout_width="40.0dp" android:layout_height="match_parent" android:layout_above="@id/horizontalScrollView" android:layout_below="@id/textView_Header" android:layout_alignParentRight="true" />
+    <ImageButton android:id="@id/button_CreateNewFolder" android:background="@drawable/button_drawable" android:layout_width="90.0dp" android:layout_height="60.0dp" android:layout_margin="3.0dp" android:scaleType="centerInside" android:layout_above="@id/listView" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/linearLayout_ConfirmButtons" android:background="#0088ff" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="1.0dp" android:layout_alignParentBottom="true">
+        <Button android:textSize="13.0dp" android:textStyle="bold" android:textColor="#ffffff" android:id="@id/button_ClosePicker" android:background="@drawable/button_drawable" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginRight="1.0dp" android:text="Close" android:layout_weight="1.0" />
+        <Button android:textSize="13.0dp" android:textStyle="bold" android:textColor="#ffffff" android:id="@id/button_Select" android:background="@drawable/button_drawable" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="Select" android:layout_weight="1.0" />
+    </LinearLayout>
+    <HorizontalScrollView android:id="@id/horizontalScrollView" android:background="@color/ui_background" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_above="@id/linearLayout_ConfirmButtons">
+        <LinearLayout android:orientation="horizontal" android:id="@id/linearLayout_FolderPath" android:layout_width="wrap_content" android:layout_height="50.0dp" />
+    </HorizontalScrollView>
+    <FrameLayout android:id="@id/frameLayout_CreateNewFolder" android:background="#aa000000" android:visibility="invisible" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent">
+        <RelativeLayout android:layout_gravity="center" android:background="#292929" android:layout_width="match_parent" android:layout_height="200.0dp" android:layout_margin="10.0dp">
+            <EditText android:id="@id/editText_NewFolderName" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:hint="" android:layout_centerVertical="true" android:inputType="textCapWords" android:textAlignment="center" />
+            <TextView android:textSize="17.0dp" android:textStyle="bold" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp" android:text="Enter Folder Name" android:layout_alignParentTop="true" android:textAlignment="center" />
+            <LinearLayout android:orientation="horizontal" android:background="#004cff" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="1.0dp" android:layout_alignParentBottom="true">
+                <Button android:id="@id/button_CloseNewFolderPanel" android:background="@drawable/button_drawable" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginRight="1.0dp" android:text="Cancel" android:layout_weight="1.0" />
+                <Button android:id="@id/button_OK" android:background="@drawable/button_drawable" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="OK" android:layout_weight="1.0" />
+            </LinearLayout>
+        </RelativeLayout>
+    </FrameLayout>
+</RelativeLayout>

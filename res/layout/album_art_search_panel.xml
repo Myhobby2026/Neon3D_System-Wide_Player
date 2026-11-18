@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="17.0sp" android:textStyle="bold" android:textColor="#ffffff" android:id="@id/textView_Header" android:background="@drawable/button_background_pink" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/search_album_cover" android:textAlignment="center" />
+    <CheckBox android:id="@id/checkbox_Title" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="@string/title" android:layout_below="@id/textView_Header" />
+    <EditText android:id="@id/editText_Title" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="3" android:layout_below="@id/checkbox_Title" />
+    <CheckBox android:id="@id/checkbox_Album" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:checked="true" android:text="@string/album" android:layout_below="@id/editText_Title" />
+    <EditText android:id="@id/editText_Album" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="3" android:layout_below="@id/checkbox_Album" />
+    <CheckBox android:id="@id/checkbox_Other" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:checked="true" android:text="@string/others" android:layout_below="@id/editText_Album" />
+    <EditText android:id="@id/editText_Other" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/album_cover" android:maxLines="3" android:layout_below="@id/checkbox_Other" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_below="@id/editText_Other">
+        <Button android:id="@id/button_Close" android:background="@drawable/button_background_pink" android:layout_width="0.0dp" android:layout_height="50.0dp" android:layout_margin="1.0dp" android:text="@string/close" android:layout_weight="1.0" android:textAllCaps="false" />
+        <Button android:id="@id/button_Search" android:background="@drawable/button_background_pink" android:layout_width="0.0dp" android:layout_height="50.0dp" android:layout_margin="1.0dp" android:text="@string/search_album_cover" android:layout_weight="2.3" android:textAllCaps="false" />
+    </LinearLayout>
+</RelativeLayout>

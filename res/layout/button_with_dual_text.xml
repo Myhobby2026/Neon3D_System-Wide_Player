@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:layout_gravity="start|center" android:id="@id/imageView" android:layout_width="50.0dp" android:layout_height="50.0dp" />
+    <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textStyle="bold" android:textColor="#ffffff" android:id="@id/textView_Top" android:paddingTop="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sleep Timer" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" />
+        <TextView android:textSize="12.0sp" android:id="@id/textView_Bottom" android:paddingBottom="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Set Timer for Auto Pause/Exit Application" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" />
+    </LinearLayout>
+</LinearLayout>

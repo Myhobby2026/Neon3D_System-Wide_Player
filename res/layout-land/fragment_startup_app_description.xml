@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:id="@id/imageView" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="40.0dp" android:layout_marginBottom="40.0dp" android:scaleType="fitCenter" android:layout_marginStart="40.0dp" android:layout_marginEnd="40.0dp" app:accordingToWidth="false" app:isSquare="true" />
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_toEndOf="@id/imageView">
+        <TextView android:textSize="23.0sp" android:textColor="#ffffff" android:layout_gravity="center_horizontal" android:id="@id/textViewBig" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Big Text" android:scaleX="1.2" android:textAlignment="center" android:layout_marginStart="50.0dp" android:layout_marginEnd="50.0dp" />
+        <TextView android:textSize="15.0sp" android:textColor="#939393" android:layout_gravity="center_horizontal" android:id="@id/textViewSmall" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="Small Text" android:scaleX="1.1" android:textAlignment="center" android:layout_marginStart="50.0dp" android:layout_marginEnd="50.0dp" />
+    </LinearLayout>
+</RelativeLayout>

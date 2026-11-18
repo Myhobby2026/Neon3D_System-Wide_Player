@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/adContainer" android:background="@color/BLACK" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/viewGap" android:background="#00000000" android:layout_width="match_parent" android:layout_height="20.0dp" app:layout_constraintBottom_toBottomOf="parent" />
+    <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:id="@id/imageView_NoAds" android:layout_width="30.0dp" android:layout_height="0.0dp" android:scaleType="fitCenter" app:glideSrc="@drawable/ads_activated" app:layout_constraintBottom_toTopOf="@id/viewGap" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <FrameLayout android:id="@id/bannerAdContainer" android:background="#50ffffff" android:layout_width="0.0dp" android:layout_height="wrap_content" android:minHeight="50.0dp" app:layout_constraintBottom_toTopOf="@id/viewGap" app:layout_constraintEnd_toStartOf="@id/imageView_NoAds" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <com.facebook.ads.NativeAdLayout android:id="@id/fb_native_ad_layout" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" app:layout_constraintBottom_toTopOf="@id/viewGap" app:layout_constraintEnd_toStartOf="@id/imageView_NoAds" app:layout_constraintStart_toStartOf="parent">
+        <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/fb_native_banner_ad_view" />
+    </com.facebook.ads.NativeAdLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

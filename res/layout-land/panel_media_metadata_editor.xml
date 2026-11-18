@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#1a1a1a" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tamalbasak.musicplayer3d.UI.VerticalTextView android:textSize="19.0sp" android:textStyle="bold" android:textColor="#ffffff" android:gravity="end|bottom" android:id="@id/verticalTextView" android:background="#50000000" android:padding="10.0dp" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/modify_song_metadata" android:scaleY="1.1" android:textAlignment="center" layout_gravity="center" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/linearLayout_LowerButtons" android:layout_width="match_parent" android:layout_height="45.0dp" android:layout_alignParentBottom="true" android:layout_toEndOf="@id/verticalTextView">
+        <Button android:id="@id/button_Close" android:background="@drawable/button_background" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="@string/close" android:layout_weight="1.0" />
+        <Button android:id="@id/button_Save" android:background="@drawable/button_background" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="@string/save" android:layout_weight="1.0" android:layout_marginStart="1.0dp" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/linearLayout" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/linearLayout_LowerButtons" android:layout_toEndOf="@id/verticalTextView">
+        <RelativeLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0">
+            <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:id="@id/imageView_RemoveAlbumArt" android:background="@drawable/close_icon" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_alignParentBottom="true" android:layout_marginStart="10.0dp" app:isSquare="true" />
+            <com.tamalbasak.musicplayer3d.UI.XControls.XFrameLayout android:layout_gravity="center_vertical" android:id="@id/frameLayout_AlbumArt" android:background="#30ffffff" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_margin="10.0dp" app:accordingToWidth="true" app:isSquare="true">
+                <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:id="@id/imageView_AlbumArt" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_margin="5.0dp" android:scaleType="centerCrop" app:isSquare="true" />
+                <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:layout_gravity="bottom" android:id="@id/imageView_EditAlbumArt" android:background="@drawable/button_background_pink" android:padding="13.0dp" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_margin="5.0dp" app:color_replace_with="@android:color/white" app:glideSrc="@drawable/edit" />
+            </com.tamalbasak.musicplayer3d.UI.XControls.XFrameLayout>
+        </RelativeLayout>
+        <ScrollView android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="2.0">
+            <LinearLayout android:orientation="vertical" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:textColor="#acacac" android:id="@id/textView_Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/title" />
+                <EditText android:textColor="#ffffff" android:id="@id/editText_Title" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/no_information" />
+                <TextView android:textColor="#acacac" android:layout_gravity="center_vertical" android:id="@id/textView_Album" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="@string/album" />
+                <EditText android:textColor="#ffffff" android:id="@id/editText_Album" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/no_information" />
+                <TextView android:textColor="#acacac" android:layout_gravity="center_vertical" android:id="@id/textView_Artist" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="@string/artist" />
+                <EditText android:textColor="#ffffff" android:id="@id/editText_Artist" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/no_information" />
+                <TextView android:textColor="#acacac" android:layout_gravity="center_vertical" android:id="@id/textView_Composer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="@string/composer" />
+                <EditText android:textColor="#ffffff" android:id="@id/editText_Composer" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/no_information" />
+                <TextView android:textColor="#acacac" android:layout_gravity="center_vertical" android:id="@id/textView_Year" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="@string/year" />
+                <EditText android:textColor="#ffffff" android:id="@id/editText_Year" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/no_information" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tamalbasak.musicplayer3d.UI.MusicLibrary.PanelHeader android:id="@id/panelHeader" android:layout_width="170.0dp" android:layout_height="match_parent" android:layout_alignParentTop="true" android:layout_alignParentStart="true" app:headerStyleIsAlbum="true" />
+    <com.tamalbasak.musicplayer3d.UI.MusicLibrary.PanelCreatePlaylist android:id="@id/panelCreatePlaylist" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_alignParentTop="true" android:layout_toEndOf="@id/panelHeader" />
+    <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView android:scrollbarAlwaysDrawVerticalTrack="true" android:id="@id/recyclerView" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/panelCreatePlaylist" android:layout_toEndOf="@id/panelHeader" />
+    <ProgressBar android:id="@id/progressBar" android:visibility="invisible" android:layout_width="50.0dp" android:layout_height="50.0dp" android:indeterminate="true" android:layout_centerInParent="true" />
+</RelativeLayout>

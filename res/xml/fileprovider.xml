@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path name="mysongs" path="/" />
+    <external-path name="mysongs1" path="." />
+    <external-path name="mysongs2" path="/storage" />
+</paths>

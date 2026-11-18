@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/linearLayout_Parent" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tamalbasak.library.ColorPicker android:id="@id/colorPicker" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <com.tamalbasak.library.GradientPickerOptions android:id="@id/gradientPickerOptions" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="vertical" android:id="@id/layout_GradientPicker" android:background="#505050" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="150.0dp" android:baselineAligned="false">
+            <GridView android:id="@id/gridView" android:background="#50000000" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginLeft="5.0dp" android:layout_marginTop="5.0dp" android:layout_marginBottom="5.0dp" android:horizontalSpacing="5.0dp" android:verticalSpacing="5.0dp" android:numColumns="4" android:layout_weight="1.0" />
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="match_parent">
+                <Button android:id="@id/button_Add" android:background="#50000000" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginTop="5.0dp" android:layout_marginRight="5.0dp" android:layout_marginBottom="2.0dp" android:text="Add" android:height="50.0dp" android:layout_weight="1.0" />
+                <Button android:id="@id/button_Delete" android:background="#50000000" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginTop="3.0dp" android:layout_marginRight="5.0dp" android:layout_marginBottom="5.0dp" android:text="Delete" android:height="50.0dp" android:layout_weight="1.0" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <com.tamalbasak.library.CustomView android:id="@id/customView_Gradient" android:background="@android:color/black" android:layout_width="wrap_content" android:layout_height="50.0dp" android:layout_marginLeft="5.0dp" android:layout_marginTop="5.0dp" android:layout_marginRight="5.0dp" />
+            <FrameLayout android:id="@id/linearLayout_parent_of_GradientStopsSliders" android:background="#00000000" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" />
+            <LinearLayout android:orientation="horizontal" android:background="#50000000" android:padding="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="5.0dp">
+                <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="0.5">
+                    <com.tamalbasak.library.CustomView android:id="@id/customView_GradientSliderColor" android:background="#ff0000" android:layout_width="70.0dp" android:layout_height="100.0dp" />
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="2.0">
+                    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0">
+                        <TextView android:layout_gravity="center" android:id="@id/textview_GradientColorOpacity" android:layout_width="120.0dp" android:layout_height="wrap_content" android:layout_margin="10.0dp" android:text="Opacity = 50%" />
+                        <SeekBar android:layout_gravity="center" android:id="@id/seekerbar_GradienrColorOpacity" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="100" android:progress="50" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0">
+                        <TextView android:layout_gravity="center" android:id="@id/textview_GradientSliderLocation" android:layout_width="120.0dp" android:layout_height="wrap_content" android:layout_margin="10.0dp" android:text="Location = 50%" />
+                        <SeekBar android:layout_gravity="center" android:id="@id/seekbar_GradientSliderLocation" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="100" android:progress="50" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <Button android:id="@id/btn_Cancel_OnGradientPicker" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="Cancel" android:layout_weight="0.5" />
+            <Button android:id="@id/btn_Next" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="Next" android:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

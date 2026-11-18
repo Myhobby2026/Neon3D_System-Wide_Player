@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/linearLayout_Parent" android:background="#b6b6b6" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="0.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.tamalbasak.library.CustomView android:id="@id/customview_ColorSpread" android:background="#00000000" android:layout_width="0.0dp" android:layout_height="200.0dp" android:layout_margin="10.0dp" android:layout_weight="5.0" />
+        <com.tamalbasak.library.CustomView android:id="@id/customview_ColorSystem" android:background="#00000000" android:layout_width="0.0dp" android:layout_height="200.0dp" android:layout_marginTop="10.0dp" android:layout_weight="1.0" android:layout_marginStart="0.0dp" android:layout_marginEnd="10.0dp" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:background="@drawable/strock_background" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginTop="3.0dp" android:layout_marginStart="10.0dp" android:layout_marginEnd="0.0dp">
+            <com.tamalbasak.library.CustomView android:id="@id/customview_SelectedColor" android:background="@drawable/strock_background" android:layout_width="60.0dp" android:layout_height="60.0dp" android:layout_marginLeft="10.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="10.0dp" />
+            <TextView android:textSize="14.0sp" android:id="@id/textview_SelectedColor" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="10.0dp" android:text="# FF24FA" android:textAlignment="center" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <LinearLayout android:orientation="horizontal" android:background="@drawable/strock_background" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="3.0dp" android:layout_marginRight="10.0dp" android:layout_marginBottom="0.0dp">
+                <TextView android:textStyle="bold" android:layout_gravity="center_vertical" android:id="@id/textView_Red_Label" android:padding="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="R" />
+                <SeekBar android:layout_gravity="center" android:id="@id/seekbar_red" android:layout_width="0.0dp" android:layout_height="wrap_content" android:max="255" android:progress="0" android:layout_weight="1.0" />
+                <TextView android:textStyle="bold" android:layout_gravity="center_vertical" android:id="@id/textView_Red_Percentage" android:layout_width="40.0dp" android:layout_height="wrap_content" android:text="100" android:textAlignment="center" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:background="@drawable/strock_background" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="0.0dp" android:layout_marginRight="10.0dp" android:layout_marginBottom="0.0dp">
+                <TextView android:textStyle="bold" android:layout_gravity="center_vertical" android:id="@id/textView_Green_Label" android:padding="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="G" />
+                <SeekBar android:layout_gravity="center" android:id="@id/seekbar_green" android:layout_width="0.0dp" android:layout_height="wrap_content" android:max="255" android:progress="0" android:layout_weight="1.0" />
+                <TextView android:textStyle="bold" android:layout_gravity="center_vertical" android:id="@id/textView_Green_Percentage" android:layout_width="40.0dp" android:layout_height="wrap_content" android:text="100" android:textAlignment="center" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:background="@drawable/strock_background" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="0.0dp" android:layout_marginRight="10.0dp" android:layout_marginBottom="0.0dp">
+                <TextView android:textStyle="bold" android:layout_gravity="center_vertical" android:id="@id/textView_Blue_Label" android:padding="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="B" />
+                <SeekBar android:layout_gravity="center" android:id="@id/seekbar_blue" android:layout_width="0.0dp" android:layout_height="wrap_content" android:max="255" android:progress="0" android:layout_weight="1.0" />
+                <TextView android:textStyle="bold" android:layout_gravity="center_vertical" android:id="@id/textView_Blue_Percentage" android:layout_width="40.0dp" android:layout_height="wrap_content" android:text="100" android:textAlignment="center" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <Button android:id="@id/btn_ColorPicker_Cancel" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="Cancel" android:layout_weight="0.5" />
+        <Button android:id="@id/btn_ColorPicker_OK" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="OK" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

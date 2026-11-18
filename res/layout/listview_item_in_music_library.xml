@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/listView_item_normal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="1.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/relativeLayout" android:layout_width="match_parent" android:layout_height="75.0dp">
+        <TextView android:textSize="19.0sp" android:textStyle="bold" android:textColor="#ffffff" android:id="@id/textView_SlNo" android:layout_width="75.0dp" android:layout_height="wrap_content" android:text="1." android:layout_centerVertical="true" android:textAlignment="center" />
+        <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:id="@id/imageView_AlbumArt" android:layout_width="75.0dp" android:layout_height="75.0dp" android:scaleType="centerCrop" android:layout_alignParentStart="true" />
+        <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:id="@id/imageView_Option" android:padding="23.0dp" android:visibility="visible" android:layout_width="50.0dp" android:layout_height="wrap_content" android:layout_marginEnd="0.0dp" android:layout_alignParentEnd="true" app:glideSrc="@drawable/option_dot" />
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_toStartOf="@id/imageView_Option" android:layout_toEndOf="@id/imageView_AlbumArt">
+            <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="#ffffff" android:id="@id/textView_Top" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Tum Mile" android:textScaleX="1.1" android:maxLines="1" android:layout_marginStart="15.0dp" />
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="13.0sp" android:textStyle="bold" android:textColor="@color/color_of_duration" android:id="@id/textView_MiddleRight" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="..." android:maxLines="1" android:layout_centerVertical="true" android:textAlignment="textEnd" android:layout_marginStart="20.0dp" android:layout_marginEnd="5.0dp" android:layout_alignParentEnd="true" />
+                <TextView android:textSize="13.0sp" android:textStyle="bold" android:textColor="#96ffffff" android:id="@id/textView_MiddleLeft" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="......" android:textScaleX="1.1" android:maxLines="1" android:layout_centerVertical="true" android:layout_marginStart="15.0dp" android:layout_toStartOf="@id/textView_MiddleRight" />
+            </RelativeLayout>
+            <TextView android:textSize="13.0sp" android:textStyle="bold" android:textColor="#96ffffff" android:id="@id/textView_Bottom" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="..." android:maxLines="1" android:layout_marginStart="15.0dp" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

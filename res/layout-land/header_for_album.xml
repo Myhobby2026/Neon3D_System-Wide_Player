@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#50000000" android:layout_width="wrap_content" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:id="@id/imageView_AlbumArt" android:layout_width="200.0dp" android:layout_height="0.0dp" android:scaleType="centerCrop" android:layout_weight="1.0" app:accordingToWidth="false" app:isSquare="true" />
+    <com.tamalbasak.musicplayer3d.UI.XControls.XFrameLayout android:background="#50000000" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0" app:accordingToWidth="false" app:isSquare="true">
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="5.0dp" android:layout_marginEnd="5.0dp">
+            <TextView android:textStyle="bold" android:textColor="@color/color_of_upper_text_of_header" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/album" />
+            <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/color_of_header" android:id="@id/textView_AlbumName" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Hamari Aduri Kahani Hamari" android:textAlignment="center" />
+            <TextView android:textSize="13.0sp" android:textStyle="bold" android:textColor="@color/color_of_track_count" android:id="@id/textView_TrackCount" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="7 Tracks" android:textAlignment="center" />
+            <TextView android:textSize="13.0sp" android:textStyle="bold" android:textColor="@color/color_of_duration" android:id="@id/textView_TotalDuration" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="05:30:20" android:textAlignment="center" />
+            <TextView android:textSize="13.0sp" android:textStyle="bold" android:textColor="@color/color_of_year" android:id="@id/textView_Year" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="2017" android:textAlignment="center" />
+        </LinearLayout>
+    </com.tamalbasak.musicplayer3d.UI.XControls.XFrameLayout>
+</LinearLayout>

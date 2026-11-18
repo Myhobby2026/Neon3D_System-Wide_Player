@@ -1,0 +1,64 @@
+.class Lcom/tamalbasak/musicplayer3d/UI/r$b;
+.super Ljava/lang/Object;
+.source "PanelQueue.java"
+
+# interfaces
+.implements Lcom/tamalbasak/musicplayer3d/d$h;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/tamalbasak/musicplayer3d/UI/r;->c()V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# direct methods
+.method constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(Landroid/animation/Animator;Lcom/tamalbasak/musicplayer3d/d$i;)V
+    .locals 0
+
+    sget-object p1, Lcom/tamalbasak/musicplayer3d/d$i;->c:Lcom/tamalbasak/musicplayer3d/d$i;
+
+    if-ne p2, p1, :cond_0
+
+    invoke-static {}, Lcom/tamalbasak/musicplayer3d/UI/r;->d()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    invoke-static {}, Lcom/tamalbasak/musicplayer3d/MainActivity;->M()Lcom/tamalbasak/musicplayer3d/MainActivity;
+
+    move-result-object p1
+
+    iget-object p1, p1, Lcom/tamalbasak/musicplayer3d/MainActivity;->z:Lcom/tamalbasak/musicplayer3d/UI/PanelHolder;
+
+    invoke-static {}, Lcom/tamalbasak/musicplayer3d/UI/r;->b()Ljava/lang/ref/WeakReference;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/view/View;
+
+    invoke-virtual {p1, p2}, Landroid/widget/RelativeLayout;->removeView(Landroid/view/View;)V
+
+    :cond_0
+    return-void
+.end method

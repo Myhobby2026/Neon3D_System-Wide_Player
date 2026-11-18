@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/frameLayout_Main" android:background="#50000000" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:background="#00355e" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="17.0sp" android:textStyle="bold" android:background="#50000000" android:padding="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Create New Playlist" android:textAlignment="center" />
+        <EditText android:id="@id/editText_PlaylistName" android:padding="30.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Enter Playlist Name" android:maxLines="1" android:textAlignment="center" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="1.0dp">
+            <Button android:id="@id/button_Cancel" android:background="@drawable/button_background" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginRight="1.0dp" android:text="CANCEL" android:layout_weight="1.0" />
+            <Button android:id="@id/button_Save" android:background="@drawable/button_background" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="SAVE" android:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

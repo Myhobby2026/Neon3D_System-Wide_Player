@@ -1,0 +1,68 @@
+.class final Lcom/google/android/gms/internal/location/p;
+.super Lcom/google/android/gms/internal/location/o;
+.source "com.google.android.gms:play-services-location@@18.0.0"
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<E:",
+        "Ljava/lang/Object;",
+        ">",
+        "Lcom/google/android/gms/internal/location/o<",
+        "TE;>;"
+    }
+.end annotation
+
+
+# instance fields
+.field private final c:Lcom/google/android/gms/internal/location/zzbs;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/google/android/gms/internal/location/zzbs<",
+            "TE;>;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method constructor <init>(Lcom/google/android/gms/internal/location/zzbs;I)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/google/android/gms/internal/location/zzbs<",
+            "TE;>;I)V"
+        }
+    .end annotation
+
+    invoke-virtual {p1}, Ljava/util/AbstractCollection;->size()I
+
+    move-result v0
+
+    invoke-direct {p0, v0, p2}, Lcom/google/android/gms/internal/location/o;-><init>(II)V
+
+    iput-object p1, p0, Lcom/google/android/gms/internal/location/p;->c:Lcom/google/android/gms/internal/location/zzbs;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method protected final b(I)Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)TE;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/location/p;->c:Lcom/google/android/gms/internal/location/zzbs;
+
+    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    return-object p1
+.end method

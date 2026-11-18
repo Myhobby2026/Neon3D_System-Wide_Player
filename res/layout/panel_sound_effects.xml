@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:theme="@style/AppTheme" android:orientation="vertical" android:background="#000000" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app1="http://schemas.android.com/apk/res-auto">
+    <include android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/ad_container" />
+    <RelativeLayout android:id="@id/relativeLayout_Header" android:background="#640088ff" android:layout_width="match_parent" android:layout_height="40.0dp">
+        <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:id="@id/imageView_Back" android:layout_width="40.0dp" android:layout_height="40.0dp" android:scaleType="fitCenter" android:layout_alignParentStart="true" app1:glideSrc="@drawable/back_icon" />
+        <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="#ffffff" android:id="@id/textView_Header" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sound_effects" android:layout_centerInParent="true" android:textAlignment="center" />
+        <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:id="@id/imageView_Option" android:padding="13.0dp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:scaleType="fitCenter" android:layout_centerVertical="true" android:layout_alignParentEnd="true" app1:glideSrc="@drawable/option_dot" />
+        <com.tamalbasak.musicplayer3d.UI.XControls.XImageView android:id="@id/imageView_SavePreset" android:layout_width="40.0dp" android:layout_height="40.0dp" android:scaleType="fitCenter" android:layout_centerVertical="true" android:layout_marginEnd="5.0dp" android:layout_toStartOf="@id/imageView_Option" app1:glideSrc="@drawable/save_icon" />
+    </RelativeLayout>
+    <RelativeLayout android:orientation="vertical" android:id="@id/relativeLayout_Eq" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0">
+        <com.google.android.material.tabs.TabLayout android:id="@id/tabs_EqPreset" android:background="#640088ff" android:layout_width="match_parent" android:layout_height="40.0dp" app1:tabGravity="fill" app1:tabIndicatorColor="#ffffff" app1:tabMode="scrollable" app1:tabSelectedTextColor="#ffffff" app1:tabTextColor="#00799b" />
+        <com.tamalbasak.musicplayer3d.UI.XControls.XLinearLayout android:orientation="horizontal" android:id="@id/linearLayout_Eq" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/tabs_EqPreset" app1:glideBackground="@drawable/eq_back">
+            <com.tamalbasak.musicplayer3d.UI.EqView android:id="@id/eqView_Gain" app1:currentValue="0" style="@style/EqViewStyle" />
+            <com.tamalbasak.musicplayer3d.UI.EqView android:id="@id/eqView_32" app1:currentValue="0" style="@style/EqViewStyle" />
+            <com.tamalbasak.musicplayer3d.UI.EqView android:id="@id/eqView_64" app1:currentValue="0" style="@style/EqViewStyle" />
+            <com.tamalbasak.musicplayer3d.UI.EqView android:id="@id/eqView_128" app1:currentValue="0" style="@style/EqViewStyle" />
+            <com.tamalbasak.musicplayer3d.UI.EqView android:id="@id/eqView_250" app1:currentValue="0" style="@style/EqViewStyle" />
+            <com.tamalbasak.musicplayer3d.UI.EqView android:id="@id/eqView_500" app1:currentValue="0" style="@style/EqViewStyle" />
+            <com.tamalbasak.musicplayer3d.UI.EqView android:id="@id/eqView_1K" app1:currentValue="0" style="@style/EqViewStyle" />
+            <com.tamalbasak.musicplayer3d.UI.EqView android:id="@id/eqView_2K" app1:currentValue="0" style="@style/EqViewStyle" />
+            <com.tamalbasak.musicplayer3d.UI.EqView android:id="@id/eqView_4K" app1:currentValue="0" style="@style/EqViewStyle" />
+            <com.tamalbasak.musicplayer3d.UI.EqView android:id="@id/eqView_8K" app1:currentValue="0" style="@style/EqViewStyle" />
+            <com.tamalbasak.musicplayer3d.UI.EqView android:id="@id/eqView_16K" app1:currentValue="0" style="@style/EqViewStyle" />
+        </com.tamalbasak.musicplayer3d.UI.XControls.XLinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/linearLayout_EqValueText" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_below="@id/tabs_EqPreset">
+            <TextView android:id="@id/textView_EqVal_Gain" android:text="0" style="@style/EqViewTextStyleValue" />
+            <TextView android:id="@id/textView_EqVal_32" android:text="0" style="@style/EqViewTextStyleValue" />
+            <TextView android:id="@id/textView_EqVal_64" android:text="0" style="@style/EqViewTextStyleValue" />
+            <TextView android:id="@id/textView_EqVal_128" android:text="0" style="@style/EqViewTextStyleValue" />
+            <TextView android:id="@id/textView_EqVal_250" android:text="0" style="@style/EqViewTextStyleValue" />
+            <TextView android:id="@id/textView_EqVal_500" android:text="0" style="@style/EqViewTextStyleValue" />
+            <TextView android:id="@id/textView_EqVal_1K" android:text="0" style="@style/EqViewTextStyleValue" />
+            <TextView android:id="@id/textView_EqVal_2K" android:text="0" style="@style/EqViewTextStyleValue" />
+            <TextView android:id="@id/textView_EqVal_4K" android:text="0" style="@style/EqViewTextStyleValue" />
+            <TextView android:id="@id/textView_EqVal_8K" android:text="0" style="@style/EqViewTextStyleValue" />
+            <TextView android:id="@id/textView_EqVal_16K" android:text="0" style="@style/EqViewTextStyleValue" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/linearLayout_EqFrequencyText" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp" android:layout_alignParentBottom="true">
+            <TextView android:text="GAIN" style="@style/EqViewTextStyle" />
+            <TextView android:text="32" style="@style/EqViewTextStyle" />
+            <TextView android:text="64" style="@style/EqViewTextStyle" />
+            <TextView android:text="125" style="@style/EqViewTextStyle" />
+            <TextView android:text="250" style="@style/EqViewTextStyle" />
+            <TextView android:text="500" style="@style/EqViewTextStyle" />
+            <TextView android:text="1K" style="@style/EqViewTextStyle" />
+            <TextView android:text="2K" style="@style/EqViewTextStyle" />
+            <TextView android:text="4K" style="@style/EqViewTextStyle" />
+            <TextView android:text="8K" style="@style/EqViewTextStyle" />
+            <TextView android:text="16K" style="@style/EqViewTextStyle" />
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0">
+        <com.google.android.material.tabs.TabLayout android:id="@id/tabs" android:background="#64ff0055" android:layout_width="match_parent" android:layout_height="40.0dp" app1:tabGravity="fill" app1:tabIndicatorColor="#ffffff" app1:tabMode="scrollable" app1:tabSelectedTextColor="#ffffff" app1:tabTextColor="#ff578f" />
+        <com.tamalbasak.musicplayer3d.UI.XControls.XViewPager android:id="@id/viewPager" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </LinearLayout>
+</LinearLayout>
