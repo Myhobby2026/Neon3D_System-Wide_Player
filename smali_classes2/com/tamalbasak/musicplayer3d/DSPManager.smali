@@ -347,14 +347,8 @@
     goto :goto_0
 
     :cond_3
-    invoke-static {}, Lcom/tamalbasak/musicplayer3d/f;->g()Lcom/tamalbasak/musicplayer3d/f;
-
-    move-result-object v0
-
-    iget v0, v0, Lcom/tamalbasak/musicplayer3d/f;->h:F
-
-    invoke-virtual {p0, v0}, Lcom/tamalbasak/musicplayer3d/DSPManager;->j(F)V
-
+    # The surround mix dial is authoritative: applying a preset must not
+    # overwrite the live mix with the value cached in the preset file.
     iget-object v0, p0, Lcom/tamalbasak/musicplayer3d/DSPManager;->a:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;

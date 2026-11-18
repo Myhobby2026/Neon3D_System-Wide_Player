@@ -55,10 +55,23 @@
 
     div-float/2addr p2, v0
 
+    # Keep the preset controller's mix cache in step with the dial so the
+    # value is written into preset files and survives preset re-application.
+    invoke-static {}, Lcom/tamalbasak/musicplayer3d/f;->g()Lcom/tamalbasak/musicplayer3d/f;
+
+    move-result-object v0
+
+    iput p2, v0, Lcom/tamalbasak/musicplayer3d/f;->h:F
+
     invoke-static {}, Lcom/tamalbasak/musicplayer3d/e;->e0()Lcom/tamalbasak/musicplayer3d/e;
 
     move-result-object v0
 
+    if-nez v0, :cond_engine_ready
+
+    return-void
+
+    :cond_engine_ready
     invoke-virtual {v0}, Lcom/tamalbasak/musicplayer3d/e;->t0()Lcom/tamalbasak/musicplayer3d/DSPManager;
 
     move-result-object v0

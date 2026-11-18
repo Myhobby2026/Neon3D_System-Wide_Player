@@ -203,6 +203,14 @@ Completed in the workspace:
 - Surround mix persistence bug fixed: `DSPManager.j(F)` stored `int(k * 100 / 10)`
   (0..10) while `c()` reads `k = value / 100f`, so a saved 100% mix came back as 0.1.
   It now stores `int(k * 100)`.
+- Dial-had-no-effect fixed: `DSPManager.d(...)` ended with `j(f.h)`, re-applying the
+  preset file's cached mix after every preset apply. The shipped preset files carry no
+  mix trailer, so `f.h` defaulted to 1.0 and every preset apply forced the mix back to
+  100%, silently discarding the dial. `d(...)` now leaves the live mix alone; the dial
+  value reaches the system-wide path through `c()` reading
+  `Settings_SurroundMixPercentage`. The dial callback also keeps `f.h` in step so the
+  value is still written into preset files, and tolerates a missing engine instead of
+  throwing.
 - Launch crash fixed: `DSPManager.e([SI)[S` called the new `public` method
   `processDataWithMix` with `invoke-direct`, but a public instance method is virtual,
   so ART threw `IncompatibleClassChangeError` ("expected to be of type direct but
@@ -238,8 +246,14 @@ is the full surround effect.
   level, left/right for spread) and no longer carry a mix knob of their own.
 - Stored in `SharedPreferences` under `Settings_SurroundMixPercentage`, so it survives
   restarts independently of any preset.
-- Saved into every preset file as a trailing float and restored when a preset is
-  loaded, so presets keep their own mix value.
+- The dial is authoritative: `DSPManager.d(...)` (preset apply, tab switch, and the
+  system-wide service's `ExistingDspBridge.applyPreset`) no longer overwrites the live
+  mix with the value cached in the preset file. `DSPManager.c()` seeds the mix from
+  `Settings_SurroundMixPercentage`, so the dial's value is what gets applied.
+- The dial also refreshes the preset controller's mix cache, so saving a preset writes
+  the current mix as the file's trailing float. Preset files shipped in
+  `assets/sound_effects/` are 85 bytes (17 bands, no mix trailer); loading one leaves
+  the dial's value untouched.
 - Applied in both playback paths. `DSPManager.processDataWithMix` blends the dry input
   with the native `processData` output, and the system-wide service calls that same
   method through `ExistingDspBridge` (falling back to plain `processData` on builds
