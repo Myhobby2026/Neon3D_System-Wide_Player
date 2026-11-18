@@ -413,7 +413,7 @@
 
     array-length p2, p1
 
-    invoke-direct {p0, p1, v1, p2, v0}, Lcom/tamalbasak/musicplayer3d/DSPManager;->processDataWithMix([SIII)[S
+    invoke-virtual {p0, p1, v1, p2, v0}, Lcom/tamalbasak/musicplayer3d/DSPManager;->processDataWithMix([SIII)[S
 
     move-result-object p1
 
@@ -422,7 +422,7 @@
     :cond_0
     array-length v0, p1
 
-    invoke-direct {p0, p1, v1, v0, p2}, Lcom/tamalbasak/musicplayer3d/DSPManager;->processDataWithMix([SIII)[S
+    invoke-virtual {p0, p1, v1, v0, p2}, Lcom/tamalbasak/musicplayer3d/DSPManager;->processDataWithMix([SIII)[S
 
     move-result-object p1
 

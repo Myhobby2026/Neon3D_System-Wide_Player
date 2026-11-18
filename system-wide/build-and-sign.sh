@@ -109,6 +109,12 @@ echo "   aapt2 dump badging: OK"
 echo "   zipalign -c -p 4: OK"
 java -jar "$APKSIGNER_JAR" verify --verbose "$OUT"
 python3 system-wide/patch-dsp-integrity.py "$OUT" --verify-only
+if python3 -c 'import cryptography' 2>/dev/null; then
+  # Independent v2 re-implementation (does not trust apksigner's own verdict).
+  python3 system-wide/verify-apk-signature.py "$OUT"
+else
+  echo "   (skipping independent v2 check; pip install cryptography to enable)"
+fi
 head -c 4 "$OUT" | od -An -tx1 | grep -q '50 4b 03 04' || {
   echo "FATAL: first local-file header signature is not PK\\x03\\x04" >&2; exit 1; }
 echo "   first LFH signature: 50 4b 03 04"

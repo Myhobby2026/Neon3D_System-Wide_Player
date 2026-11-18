@@ -127,6 +127,8 @@ Scripts:
 - `system-wide/rebuild-smali.sh`: Java -> class -> dex -> smali into the apktool tree
 - `system-wide/patch-dsp-integrity.py`: adapt/verify the native CRC constants
 - `system-wide/build-and-sign.sh`: full rebuild -> integrity patch -> zipalign -> sign -> verify
+- `system-wide/verify-apk-signature.py`: independent APK Signature Scheme v2 check
+  (recomputes the Merkle digest and the RSA signature instead of trusting `apksigner`)
 
 Required environment:
 
@@ -201,6 +203,13 @@ Completed in the workspace:
 - Surround mix persistence bug fixed: `DSPManager.j(F)` stored `int(k * 100 / 10)`
   (0..10) while `c()` reads `k = value / 100f`, so a saved 100% mix came back as 0.1.
   It now stores `int(k * 100)`.
+- Launch crash fixed: `DSPManager.e([SI)[S` called the new `public` method
+  `processDataWithMix` with `invoke-direct`, but a public instance method is virtual,
+  so ART threw `IncompatibleClassChangeError` ("expected to be of type direct but
+  instead was found to be of type virtual") on the first audio buffer. Both call
+  sites now use `invoke-virtual`. A tree-wide scan for the same mismatch
+  (`invoke-direct`/`virtual`/`static`/`super` versus `private`/`static` declarations)
+  reports zero remaining occurrences.
 
 Confirmed on a real device by the user:
 
