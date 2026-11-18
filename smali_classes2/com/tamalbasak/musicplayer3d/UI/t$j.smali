@@ -23,6 +23,10 @@
 
 .field private d:Lcom/tamalbasak/musicplayer3d/DSPManager$a;
 
+.field private f:Lcom/tamalbasak/musicplayer3d/UI/CircularSeekBar;
+
+.field private g:Lcom/tamalbasak/musicplayer3d/UI/CircularSeekBar$a;
+
 .field e:Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl$c;
 
 
@@ -38,9 +42,17 @@
 
     iput-object v0, p0, Lcom/tamalbasak/musicplayer3d/UI/t$j;->b:Lcom/tamalbasak/musicplayer3d/UI/XControls/XImageView;
 
+    iput-object v0, p0, Lcom/tamalbasak/musicplayer3d/UI/t$j;->f:Lcom/tamalbasak/musicplayer3d/UI/CircularSeekBar;
+
     sget-object v0, Lcom/tamalbasak/musicplayer3d/DSPManager$a;->u:Lcom/tamalbasak/musicplayer3d/DSPManager$a;
 
     iput-object v0, p0, Lcom/tamalbasak/musicplayer3d/UI/t$j;->d:Lcom/tamalbasak/musicplayer3d/DSPManager$a;
+
+    new-instance v1, Lcom/tamalbasak/musicplayer3d/UI/t$j$d;
+
+    invoke-direct {v1, p0}, Lcom/tamalbasak/musicplayer3d/UI/t$j$d;-><init>(Lcom/tamalbasak/musicplayer3d/UI/t$j;)V
+
+    iput-object v1, p0, Lcom/tamalbasak/musicplayer3d/UI/t$j;->g:Lcom/tamalbasak/musicplayer3d/UI/CircularSeekBar$a;
 
     new-instance v1, Lcom/tamalbasak/musicplayer3d/UI/t$j$c;
 
@@ -94,6 +106,22 @@
 
     iput-object p1, p0, Lcom/tamalbasak/musicplayer3d/UI/t$j;->c:Lcom/tamalbasak/musicplayer3d/UI/XControls/XImageView;
 
+    const p1, 0x7f0a00c8
+
+    invoke-virtual {p0, p1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/tamalbasak/musicplayer3d/UI/CircularSeekBar;
+
+    iput-object p1, p0, Lcom/tamalbasak/musicplayer3d/UI/t$j;->f:Lcom/tamalbasak/musicplayer3d/UI/CircularSeekBar;
+
+    iget-object v1, p0, Lcom/tamalbasak/musicplayer3d/UI/t$j;->f:Lcom/tamalbasak/musicplayer3d/UI/CircularSeekBar;
+
+    iget-object v2, p0, Lcom/tamalbasak/musicplayer3d/UI/t$j;->g:Lcom/tamalbasak/musicplayer3d/UI/CircularSeekBar$a;
+
+    iput-object v2, v1, Lcom/tamalbasak/musicplayer3d/UI/CircularSeekBar;->p:Lcom/tamalbasak/musicplayer3d/UI/CircularSeekBar$a;
+
     iget-object p1, p0, Lcom/tamalbasak/musicplayer3d/UI/t$j;->a:Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;
 
     iget-object v1, p0, Lcom/tamalbasak/musicplayer3d/UI/t$j;->e:Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl$c;
@@ -144,7 +172,7 @@
 
 # virtual methods
 .method public b()V
-    .locals 3
+    .locals 4
 
     invoke-static {}, Lcom/tamalbasak/musicplayer3d/e;->e0()Lcom/tamalbasak/musicplayer3d/e;
 
@@ -180,11 +208,49 @@
 
     invoke-virtual {v1, v0}, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->setEnable(Z)V
 
-    iget-object v0, p0, Lcom/tamalbasak/musicplayer3d/UI/t$j;->a:Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;
+    iget-object v1, p0, Lcom/tamalbasak/musicplayer3d/UI/t$j;->a:Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->m(Z)V
+    invoke-virtual {v1, v2}, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->m(Z)V
 
+    # ---- keep the separate mix dial in step with DSPManager ----
+    iget-object v1, p0, Lcom/tamalbasak/musicplayer3d/UI/t$j;->f:Lcom/tamalbasak/musicplayer3d/UI/CircularSeekBar;
+
+    if-eqz v1, :cond_seek_done
+
+    invoke-virtual {v1, v0}, Lcom/tamalbasak/musicplayer3d/UI/CircularSeekBar;->setEnable(Z)V
+
+    invoke-static {}, Lcom/tamalbasak/musicplayer3d/e;->e0()Lcom/tamalbasak/musicplayer3d/e;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/tamalbasak/musicplayer3d/e;->t0()Lcom/tamalbasak/musicplayer3d/DSPManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/tamalbasak/musicplayer3d/DSPManager;->i()F
+
+    move-result v2
+
+    const/high16 v3, 0x42c80000    # 100.0f
+
+    mul-float/2addr v2, v3
+
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
+
+    move-result v2
+
+    invoke-virtual {v1}, Lcom/tamalbasak/musicplayer3d/UI/CircularSeekBar;->getPercentage()I
+
+    move-result v3
+
+    if-eq v2, v3, :cond_seek_done
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v1, v2, v3}, Lcom/tamalbasak/musicplayer3d/UI/CircularSeekBar;->c(IZ)V
+
+    :cond_seek_done
     return-void
 .end method

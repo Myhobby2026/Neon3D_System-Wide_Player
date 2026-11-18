@@ -225,17 +225,17 @@ Not exhaustively characterized here:
 
 ## Surround 7.1 mix knob
 
-The 3D / Surround 7.1 page (`V3dSurroundControl`) now has a third parameter: a **mix**
-knob drawn in the centre of the existing concentric circles. It sets how much of the
-surround effect is mixed into the output — 0% is the untouched dry signal, 100% is the
-full surround effect.
+The 3D / Surround 7.1 page has a third parameter: a **mix** control that sets how much
+of the surround effect is mixed into the output — 0% is the untouched dry signal, 100%
+is the full surround effect.
 
 - Value range 0–100, default 100.
-- The centre control is a **rotary knob**: touch anywhere inside the inner circle and
-  drag around the centre (or just tap the angle you want). The value follows the
-  clockwise angle from the top — 0% at the top, 25% right, 50% bottom, 75% left — and
-  the green ring plus the percentage label update live. The touch target is wider than
-  the drawn dial, so the knob does not have to be hit precisely.
+- It is a large **rotary dial** in its own panel on the right of the page, next to the
+  concentric surround circles (the same `CircularSeekBar` widget the Bass/Treble page
+  uses). Drag around the dial to turn it, or tap the value you want; the arc and the
+  percentage label in the middle update live.
+- The concentric circles are now devoted to the effect gesture (finger up/down for
+  level, left/right for spread) and no longer carry a mix knob of their own.
 - Stored in `SharedPreferences` under `Settings_SurroundMixPercentage`, so it survives
   restarts independently of any preset.
 - Saved into every preset file as a trailing float and restored when a preset is
