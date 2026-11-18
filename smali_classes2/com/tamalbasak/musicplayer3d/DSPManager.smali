@@ -468,10 +468,6 @@
 
     mul-float/2addr p1, v2
 
-    const/high16 v2, 0x41200000    # 10.0f
-
-    div-float/2addr p1, v2
-
     float-to-int v2, p1
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;

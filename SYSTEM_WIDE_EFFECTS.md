@@ -126,6 +126,7 @@ Scripts:
 - `system-wide/run-tests.sh`: JVM parser unit test
 - `system-wide/rebuild-smali.sh`: Java -> class -> dex -> smali into the apktool tree
 - `system-wide/patch-dsp-integrity.py`: adapt/verify the native CRC constants
+- `system-wide/build-and-sign.sh`: full rebuild -> integrity patch -> zipalign -> sign -> verify
 
 Required environment:
 
@@ -134,38 +135,50 @@ export JAVA_HOME=/path/to/jdk
 export ANDROID_JAR=/path/to/platforms/android-34/android.jar
 export APKTOOL_JAR=/path/to/apktool-2.11.1.jar
 
+# Real Android packaging tools. Do NOT substitute a hand-rolled zip writer.
+export ZIPALIGN=/path/to/zipalign       # Android build-tools
+export APKSIGNER_JAR=/path/to/apksigner.jar
+export AAPT2=/path/to/aapt2             # Android build-tools
+
 # Optional if javac/d8 are not on PATH:
 export ECJ_JAR=/path/to/ecj.jar
 export DX_JAR=/path/to/dx.jar
 
 ./system-wide/run-tests.sh
 ./system-wide/rebuild-smali.sh
-
-java -Xmx2g -jar "$APKTOOL_JAR" b . \
-  -o build/Neon_3D_Player-system-wide-unsigned.apk --use-aapt2
-
-# Mandatory: match libdsp.so's CRC constants to the rebuilt dex entries.
-python3 system-wide/patch-dsp-integrity.py \
-  build/Neon_3D_Player-system-wide-unsigned.apk \
-  --out build/Neon_3D_Player-system-wide-patched.apk
-
-zipalign -p -f 4 \
-  build/Neon_3D_Player-system-wide-patched.apk \
-  build/Neon_3D_Player-system-wide-aligned.apk
-
-java -jar apksigner.jar sign \
-  --ks your-keystore.p12 --ks-type PKCS12 \
-  --ks-key-alias your-alias \
-  --v1-signing-enabled true --v2-signing-enabled true --v3-signing-enabled true \
-  --out releases/Neon_3D_Player-system-wide-debug.apk \
-  build/Neon_3D_Player-system-wide-aligned.apk
-
-java -jar apksigner.jar verify --verbose --min-sdk-version 19 \
-  releases/Neon_3D_Player-system-wide-debug.apk
-zipalign -c -p 4 releases/Neon_3D_Player-system-wide-debug.apk
-python3 system-wide/patch-dsp-integrity.py \
-  releases/Neon_3D_Player-system-wide-debug.apk --verify-only
+./system-wide/build-and-sign.sh
 ```
+
+`build-and-sign.sh` performs, in order:
+
+1. strips `<queries>` from `AndroidManifest.xml` (apktool 2.4.1's `aapt2` rejects it)
+   and restores the file afterwards,
+2. `apktool b --use-aapt2`,
+3. `patch-dsp-integrity.py` (mandatory, see above),
+4. rewrites `lib/arm64-v8a/*.so` as **stored** entries (`extractNativeLibs` is not
+   declared, so the loader accepts both compressed and uncompressed libs; stored +
+   page-aligned is the safe choice),
+5. `zipalign -f -p 4`,
+6. `apksigner sign` with v1+v2+v3,
+7. verifies the result (see below).
+
+### Packaging must use the real `zipalign` / `apksigner`
+
+An earlier revision repackaged the APK with a hand-written Python zip rewriter. The
+resulting file started with `00 00 00 50` instead of the ZIP local-file-header
+signature `50 4b 03 04`. Python's `zipfile` reads that file happily and
+`zipalign -c -p 4` even reports "Verification succesful", but Android's
+`libziparchive` — used by the package manager, `aapt2` and App Manager — refuses to
+open it:
+
+```
+ziparchive W: Entry at offset zero has invalid LFH signature 50000000
+error: failed opening zip: Invalid file.
+```
+
+On a device this surfaces as `Undefined / Could not fetch package info` (App Manager)
+or a generic "app not installed". Always run the `aapt2 dump badging` sanity check
+from step 7 before publishing an APK.
 
 Do not commit private keystores or PEM keys. `build/`, `.cache/`, keystores, and keys are ignored.
 
@@ -178,6 +191,16 @@ Completed in the workspace:
 - Decoded APK contains the new manifest entries, menu id/button, service/activity classes, and the bundled `libdsp.so`.
 - `patch-dsp-integrity.py --verify-only` confirms the native CRC constants match the final APK's `classes.dex` / `classes2.dex`.
 - Official `apksigner` verifies v1, v2, and v3 signatures; `zipalign -c -p 4` passes.
+- `aapt2 dump badging` / `aapt2 dump xmltree` parse the packaged APK, i.e. the same
+  `libziparchive` path the package manager uses. The APK starts with `50 4b 03 04`.
+- The v2 signature was additionally re-verified outside `apksigner`: the Merkle digest
+  over APK sections 1/3/4 (EOCD central-directory offset treated as the signing-block
+  offset) reproduces the digest stored in the v2 `signed data`, and the
+  RSASSA-PKCS1-v1_5/SHA-256 signature over `signed data` verifies against the signer
+  certificate, whose SPKI matches the v2 block's public key.
+- Surround mix persistence bug fixed: `DSPManager.j(F)` stored `int(k * 100 / 10)`
+  (0..10) while `c()` reads `k = value / 100f`, so a saved 100% mix came back as 0.1.
+  It now stores `int(k * 100)`.
 
 Confirmed on a real device by the user:
 
