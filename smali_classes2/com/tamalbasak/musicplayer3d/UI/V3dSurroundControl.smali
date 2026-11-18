@@ -454,6 +454,77 @@
     return p0
 .end method
 
+# Surround mix knob: maps a touch offset (p0 = dx, p1 = dy) from the centre of the
+# control to a 0..100 percentage, sweeping clockwise from the top.  When the touch
+# is closer than p2 to the centre the angle is unstable, so p3 (the current value)
+# is returned unchanged instead.
+.method private static H(FFFF)F
+    .locals 6
+
+    mul-float v0, p0, p0
+
+    mul-float v1, p1, p1
+
+    add-float/2addr v0, v1
+
+    mul-float v1, p2, p2
+
+    cmpg-float v2, v0, v1
+
+    if-gez v2, :cond_far
+
+    return p3
+
+    :cond_far
+    float-to-double v0, p1
+
+    float-to-double v2, p0
+
+    invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->atan2(DD)D
+
+    move-result-wide v0
+
+    const-wide v2, 0x404ca5dc1a63c1f8L    # 57.29577951308232
+
+    mul-double v0, v0, v2
+
+    double-to-float v0, v0
+
+    const/4 v2, 0x0
+
+    cmpg-float v1, v0, v2
+
+    if-gez v1, :cond_pos
+
+    const v1, 0x43b40000    # 360.0f
+
+    add-float/2addr v0, v1
+
+    :cond_pos
+    const v1, 0x42b40000    # 90.0f
+
+    add-float/2addr v0, v1
+
+    const v1, 0x43b40000    # 360.0f
+
+    cmpl-float v2, v0, v1
+
+    if-ltz v2, :cond_lt
+
+    sub-float/2addr v0, v1
+
+    :cond_lt
+    const v1, 0x43b40000    # 360.0f
+
+    div-float/2addr v0, v1
+
+    const v1, 0x42c80000    # 100.0f
+
+    mul-float/2addr v0, v1
+
+    return v0
+.end method
+
 .method private l(Landroid/graphics/Canvas;)V
     .locals 23
 
@@ -1222,7 +1293,7 @@
 
     iget-object v7, v1, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->E:Landroid/graphics/Paint;
 
-    const v8, 0x3df5c28f    # 0.12f
+    const v8, 0x3e6147ae    # 0.22f
 
     mul-float/2addr v8, v6
 
@@ -1607,7 +1678,7 @@
 
     div-float/2addr v2, v3
 
-    const v3, 0x3eb33333    # 0.35f
+    const v3, 0x3f000000    # 0.5f
 
     mul-float/2addr v2, v3
 
@@ -1636,58 +1707,60 @@
 
     if-ne v7, v0, :cond_knob_up
 
-    # ---- move: drag the mix knob ----
+    const/4 v0, 0x3
+
+    if-ne v7, v0, :cond_knob_up
+
+    # ---- move: turn the surround mix knob ----
     iget-boolean v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->A:Z
 
     if-nez v0, :cond_move_done
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
-
-    float-to-int v0, v0
-
-    iget v1, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->B:I
-
-    sub-int/2addr v0, v1
-
-    int-to-float v0, v0
-
-    neg-float v0, v0
 
     invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
-    move-result v1
+    move-result v2
 
-    int-to-float v1, v1
+    int-to-float v2, v2
 
-    const v2, 0x3f333333    # 0.7f
+    const/high16 v3, 0x40000000    # 2.0f
 
-    mul-float/2addr v1, v2
+    div-float/2addr v2, v3
 
-    const/high16 v2, 0x40000000    # 2.0f
+    sub-float/2addr v0, v2
 
-    div-float/2addr v1, v2
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
-    div-float/2addr v0, v1
+    move-result v2
 
-    const/high16 v1, 0x42c80000    # 100.0f
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
-    mul-float/2addr v0, v1
+    move-result v3
 
-    iget v1, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->C:F
+    int-to-float v3, v3
 
-    add-float/2addr v0, v1
+    const/high16 v4, 0x40000000    # 2.0f
 
-    const/high16 v1, 0x42c80000    # 100.0f
+    div-float/2addr v3, v4
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->min(FF)F
+    sub-float/2addr v2, v3
 
-    move-result v0
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
-    const/4 v1, 0x0
+    move-result v3
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->max(FF)F
+    int-to-float v3, v3
+
+    const v4, 0x3d4ccccd    # 0.05f
+
+    mul-float/2addr v3, v4
+
+    iget v4, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->z:F
+
+    invoke-static {v0, v2, v3, v4}, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->H(FFFF)F
 
     move-result v0
 
@@ -1719,17 +1792,71 @@
 
     iput-boolean v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->A:Z
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
 
-    float-to-int v0, v0
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
-    iput v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->B:I
+    move-result v2
 
-    iget v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->z:F
+    int-to-float v2, v2
 
-    iput v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->C:F
+    const/high16 v3, 0x40000000    # 2.0f
+
+    div-float/2addr v2, v3
+
+    sub-float/2addr v0, v2
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
+
+    move-result v2
+
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    const/high16 v4, 0x40000000    # 2.0f
+
+    div-float/2addr v3, v4
+
+    sub-float/2addr v2, v3
+
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    const v4, 0x3d4ccccd    # 0.05f
+
+    mul-float/2addr v3, v4
+
+    iget v4, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->z:F
+
+    invoke-static {v0, v2, v3, v4}, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->H(FFFF)F
+
+    move-result v0
+
+    iput v0, p0, Lcom/tamalbasak/musicplayer3d/UI/V3dSurroundControl;->z:F
+
+    invoke-static {}, Lcom/tamalbasak/musicplayer3d/e;->e0()Lcom/tamalbasak/musicplayer3d/e;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/tamalbasak/musicplayer3d/e;->t0()Lcom/tamalbasak/musicplayer3d/DSPManager;
+
+    move-result-object v1
+
+    const/high16 v2, 0x42c80000    # 100.0f
+
+    div-float/2addr v0, v2
+
+    invoke-virtual {v1, v0}, Lcom/tamalbasak/musicplayer3d/DSPManager;->j(F)V
+
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     invoke-static {}, Lcom/tamalbasak/musicplayer3d/UI/t;->v()Lcom/tamalbasak/musicplayer3d/UI/t;
 

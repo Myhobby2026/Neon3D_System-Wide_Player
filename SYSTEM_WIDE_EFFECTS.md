@@ -231,8 +231,11 @@ surround effect is mixed into the output — 0% is the untouched dry signal, 100
 full surround effect.
 
 - Value range 0–100, default 100.
-- Drag the centre knob up/down (or tap it) to change it; the ring around the knob and
-  the percentage label update live.
+- The centre control is a **rotary knob**: touch anywhere inside the inner circle and
+  drag around the centre (or just tap the angle you want). The value follows the
+  clockwise angle from the top — 0% at the top, 25% right, 50% bottom, 75% left — and
+  the green ring plus the percentage label update live. The touch target is wider than
+  the drawn dial, so the knob does not have to be hit precisely.
 - Stored in `SharedPreferences` under `Settings_SurroundMixPercentage`, so it survives
   restarts independently of any preset.
 - Saved into every preset file as a trailing float and restored when a preset is
