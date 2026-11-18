@@ -24,7 +24,10 @@
 
 .field public b:I
 
-.field private k:F
+# Process-global: the surround mix must be visible to every DSPManager instance
+# (the player engine's and the system-wide bridge's fallback), otherwise a dial
+# move on one instance would not reach the instance that processes the audio.
+.field private static k:F
 
 
 # direct methods
@@ -53,7 +56,7 @@
 
     const/high16 v0, 0x3f800000    # 1.0f
 
-    iput v0, p0, Lcom/tamalbasak/musicplayer3d/DSPManager;->k:F
+    sput v0, Lcom/tamalbasak/musicplayer3d/DSPManager;->k:F
 
     invoke-direct {p0}, Lcom/tamalbasak/musicplayer3d/DSPManager;->construct()V
 
@@ -275,7 +278,7 @@
 
     div-float/2addr v0, v1
 
-    iput v0, p0, Lcom/tamalbasak/musicplayer3d/DSPManager;->k:F
+    sput v0, Lcom/tamalbasak/musicplayer3d/DSPManager;->k:F
 
     return-void
 .end method
@@ -426,12 +429,12 @@
 .method public i()F
     .locals 1
 
-    iget v0, p0, Lcom/tamalbasak/musicplayer3d/DSPManager;->k:F
+    sget v0, Lcom/tamalbasak/musicplayer3d/DSPManager;->k:F
 
     return v0
 .end method
 
-.method public j(F)V
+.method public static j(F)V
     .locals 4
 
     const/high16 v0, 0x3f800000    # 1.0f
@@ -446,7 +449,7 @@
 
     move-result p1
 
-    iput p1, p0, Lcom/tamalbasak/musicplayer3d/DSPManager;->k:F
+    sput p1, Lcom/tamalbasak/musicplayer3d/DSPManager;->k:F
 
     invoke-static {}, Lcom/tamalbasak/musicplayer3d/d;->k()Landroid/content/Context;
 
@@ -478,7 +481,7 @@
 .method public processDataWithMix([SIII)[S
     .locals 8
 
-    iget v0, p0, Lcom/tamalbasak/musicplayer3d/DSPManager;->k:F
+    sget v0, Lcom/tamalbasak/musicplayer3d/DSPManager;->k:F
 
     const/4 v6, 0x0
 

@@ -63,20 +63,9 @@
 
     iput p2, v0, Lcom/tamalbasak/musicplayer3d/f;->h:F
 
-    invoke-static {}, Lcom/tamalbasak/musicplayer3d/e;->e0()Lcom/tamalbasak/musicplayer3d/e;
-
-    move-result-object v0
-
-    if-nez v0, :cond_engine_ready
-
-    return-void
-
-    :cond_engine_ready
-    invoke-virtual {v0}, Lcom/tamalbasak/musicplayer3d/e;->t0()Lcom/tamalbasak/musicplayer3d/DSPManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p2}, Lcom/tamalbasak/musicplayer3d/DSPManager;->j(F)V
+    # The mix is process-global, so the dial reaches the audio path with or
+    # without a live player engine.
+    invoke-static {p2}, Lcom/tamalbasak/musicplayer3d/DSPManager;->j(F)V
 
     return-void
 .end method

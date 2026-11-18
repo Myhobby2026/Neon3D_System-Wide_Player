@@ -250,6 +250,11 @@ is the full surround effect.
   system-wide service's `ExistingDspBridge.applyPreset`) no longer overwrites the live
   mix with the value cached in the preset file. `DSPManager.c()` seeds the mix from
   `Settings_SurroundMixPercentage`, so the dial's value is what gets applied.
+- The mix is a **process-global** (`DSPManager.k` is `static`, and `j(F)` is static).
+  The player engine and the system-wide bridge's fallback `DSPManager` are separate
+  instances, so an instance field could be updated by the dial while a different
+  instance processed the audio. The dial callback now calls `DSPManager.j(F)`
+  directly and no longer needs a live engine.
 - The dial also refreshes the preset controller's mix cache, so saving a preset writes
   the current mix as the file's trailing float. Preset files shipped in
   `assets/sound_effects/` are 85 bytes (17 bands, no mix trailer); loading one leaves
