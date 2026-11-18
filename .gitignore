@@ -12,3 +12,5 @@ out/
 *.jks
 *.keystore
 *.pem
+__pycache__/
+*.pyc
